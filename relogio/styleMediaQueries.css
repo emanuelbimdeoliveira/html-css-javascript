@@ -1,0 +1,73 @@
+@media screen and (max-width: 1450px) {
+    sup {
+        right: 5%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    section > p {
+        font-size: 1.2em;
+    }
+
+    sup {
+        right: 1%;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    section > p {
+        width: 150px;
+        height: 170px;
+
+        font-size: .9em;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    section > p {
+        padding: 1%;
+    }
+
+    sup {
+        display: none;
+    }
+
+    p.date {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    section > p {
+        width: 120px;
+        height: 130px;
+
+        padding: 1%;
+        
+        font-size: .6em;
+    }    
+
+    p.date {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    section > p {
+        height: 100px;
+
+        font-size: .45em;
+    }
+
+    span.description {
+        font-size: .25em;
+    }
+
+    section > span {
+        font-size: .8em;
+    }
+
+    p.date {
+        font-size: 1.35em;
+    }
+}

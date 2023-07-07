@@ -1,0 +1,106 @@
+@font-face {
+    font-family: boldFont;
+    src: url(fonte/the_bold_font/THEBOLDFONT\ 2022.otf);
+}
+
+@keyframes backgroundAnimation {
+    to {
+        background-position: right;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: boldFont, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #f50, #f70, #fa0);
+    background-size: 150%;
+
+    height: 100vh;
+
+    animation: backgroundAnimation 5s linear infinite alternate;
+}
+
+main {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+section {
+    position: relative;
+
+    background: black;
+    width: 80%;
+    max-width: 1300px;
+    
+    padding: 2%;
+    margin: 15vh auto 0;
+
+    font-size: 7.5em;
+    font-weight: 800;
+
+    border-radius: 10px;
+ 
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+section > p {
+    background: white;
+    color: black;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 10px;
+        
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+section > span {
+    margin: 2%;
+}
+
+span.description {
+    font-size: 20px;
+}
+
+sup {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+
+    font-size: 50px;
+    color: white;
+
+    padding: 1%;
+}
+
+p.date {
+    color: black;
+    
+    font-size: 3.5em;
+    font-weight: 800;
+
+    text-align: center;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 0 white;
+
+    margin: auto;
+    padding: 1%;
+}
