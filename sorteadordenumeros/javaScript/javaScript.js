@@ -6,6 +6,7 @@ const minValue = document.querySelector("input#min");
 const body = document.querySelector("body");
 
 const startRandomButton = document.querySelector("form > a > p");
+const buttonMoreOptions = document.querySelector("#menu")
 const buttonRefresh = document.querySelector("#button-refresh");
 const buttonHistory = document.querySelector("#button-history");
 
@@ -65,10 +66,17 @@ const showHistory = () => {
     }
 }
 
+const showMore = () => {
+    document.querySelectorAll(".ocultable-hidden").forEach((element) => {
+        element.classList.toggle("ocultable-show");
+    });
+}
+
 
 // eventos
 startRandomButton.addEventListener("click", randomNumber);
 
+buttonMoreOptions.addEventListener("click", showMore);
 buttonRefresh.addEventListener("click", randomNumber);
 buttonHistory.addEventListener("click", showHistory);
 

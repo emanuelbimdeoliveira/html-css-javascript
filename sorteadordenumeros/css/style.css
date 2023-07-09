@@ -126,8 +126,6 @@ section#main-display p {
 
 nav {
     list-style-type: none;
-
-    height: 45px;
     
     padding: 1%;
     
@@ -145,8 +143,12 @@ nav {
     overflow: hidden;
 }
 
-nav:hover {
-    height: 150px;
+.ocultable-hidden {
+    visibility: hidden;
+}
+
+.ocultable-show {
+    visibility: visible;
 }
 
 .buttons {
@@ -167,6 +169,12 @@ nav:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#button-refresh {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
 }
 
 
@@ -270,6 +278,10 @@ section#form:target {
     input[type=number] {
         width: 80%;
         margin: 2% 0;
+    }
+
+    input[type=color] {
+        width: 237px;
     }
 }
 
