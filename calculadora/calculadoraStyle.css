@@ -1,0 +1,186 @@
+@font-face {
+    font-family: fonte;
+    src: url(fontes/Sunday\ Best\ ttf.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-shadow: inset -10px -15px 15px 5px #00000047, inset 10px 15px 15px 5px #ffffff20, 4px 4px 20px #00040080;
+}
+
+body {
+    /* background-color: #c5f4bd; */
+    font-family: 'fonte', 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    user-select: none;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    font-family: 'fonte', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    background: linear-gradient(45deg, hsl(120, 100%, 30%), hsl(120, 100%, 60%), hsl(120, 100%, 50%));
+    /* background: radial-gradient(ellipse at 50% 2%, hsl(330, 100%, 72%) 30%, hsl(330, 98%, 40%)); */
+    /* background: linear-gradient(45deg, hsl(330, 98%, 40%), hsl(330, 96%, 67%), hsl(330, 100%, 50%)); */
+    border: solid 2px black;
+    box-shadow: inset -10px 0 15px 5px #00000047, inset 10px 15px 15px 5px #ffffff20, 4px 4px 20px #00040080;
+    margin: 0 auto;
+    max-width: 600px;
+    height: 30%;
+    text-shadow: 0 0 5px #ffff;
+}
+
+.menu:hover {
+    color: white;
+}
+
+p.telaNumeros {
+    background: linear-gradient(45deg, #040, #7f7, #070);
+    border: solid 2px black;
+    text-shadow: 2px 2px 0 white;
+    box-shadow: inset -10px -15px 15px 5px #00000047, inset 10px 15px 15px 5px #ffffff20, 4px 4px 20px #00040080;
+    width: 80%;
+    height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+    margin: 2% auto;
+}
+
+main {
+    height: 100vh;
+    max-width: 600px;
+    margin: auto;
+}
+
+.main {
+    background: black;
+    height: 70%;
+    display: grid;
+    grid-template-areas: 
+    "btNumero1 btNumero2 btNumero3"
+    "btNumero4 btNumero5 btNumero6"
+    "btNumero7 btNumero8 btNumero9"
+    "btSinalMais btNumero0 btRes"
+    "btSinalMais btNumeroNaVerdadeVirgula btRes"
+    "btSinalMenos btSinalMult btSinalDiv"
+    "btDel btExponencial btBackspace"
+    "btDel btInverter btBackspace";
+    gap: 3px;
+    margin: 0 auto;
+    padding: 2% 5%;
+    box-shadow: 4px 4px 20px #00040070, 4px 4px 20px #00040070;    
+}
+
+button {
+    /* background: linear-gradient(45deg, hsl(330, 98%, 40%), hsl(330, 96%, 67%), hsl(330, 100%, 50%)); */
+    background: linear-gradient(45deg, hsl(120, 100%, 33%), #7f7, #0f0);
+    width: 90%;
+    height: 90%;
+    text-shadow: 0 0 5px #ffff;
+    box-shadow: inset -10px -15px 15px 5px #00040063, inset 10px 15px 15px 5px #ffffff29, 4px 4px 20px #000400f0;
+    font-family: 'fonte', Arial, Helvetica, sans-serif;font-size: 1em; 
+    font-weight: 700;
+    border-radius: 3%;
+    border: none;
+    transition-duration: .5s;
+    margin: auto;
+}
+
+button:hover {
+    background: #f5deb3;
+}
+
+button:active {
+    background: #f0e7d7;
+    transform: scale(0.9);
+}
+
+.btNumero1 {
+    grid-area: btNumero1;
+}
+
+.btNumero2 {
+    grid-area: btNumero2;
+}
+
+.btNumero3 {
+    grid-area: btNumero3;
+}
+
+.btNumero4 {
+    grid-area: btNumero4;
+}
+
+.btNumero5 {
+    grid-area: btNumero5;
+}
+
+.btNumero6 {
+    grid-area: btNumero6;
+}
+
+.btNumero7 {
+    grid-area: btNumero7;
+}
+
+.btNumero8 {
+    grid-area: btNumero8;
+}
+
+.btNumero9 {
+    grid-area: btNumero9;
+}
+
+.btNumero0 {
+    grid-area: btNumero0;
+}
+
+.btSinalMais {
+    grid-area: btSinalMais;
+}
+
+.btSinalMenos {
+    grid-area: btSinalMenos;
+}
+
+.btRes {
+    grid-area: btRes;
+}
+
+.btSinalMult {
+    grid-area: btSinalMult;
+
+}
+
+.btSinalDiv {
+    grid-area: btSinalDiv;
+
+}
+
+.btDel {
+    grid-area: btDel;
+}
+
+.btBackspace {
+    grid-area: btBackspace;
+    font-weight: 800;
+}
+
+.btNumeroNaVerdadeVirgula {
+    grid-area: btNumeroNaVerdadeVirgula;
+}
+
+.btInverter {
+    grid-area: btInverter;    
+}
+
+.btSinalExponencial {
+    grid-area: btExponencial;
+}
