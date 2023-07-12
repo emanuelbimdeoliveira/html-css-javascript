@@ -1,0 +1,488 @@
+@font-face {
+    font-family: 'fonte';
+    src: url(../arquivos/fonte/richsten/Richsten\ Demo.otf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(../arquivos/fonte/the_bold_font/THEBOLDFONT\ 2022.otf);
+}
+
+@keyframes backgroundAnimation {
+    to {
+        background-position: right;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor);
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    transition: all .5s;
+}
+
+/* temas padrão para modificação das cores */
+.temaPadraoBody {
+    /* background: radial-gradient(circle at 50% 100%, #077eff, #0023f1, #0000a5, #00007a); */
+    background: linear-gradient(125deg, #078eff, #0053f1, #0f0fff, #0000a5, #007, #004);
+    background-size: 200%;
+
+    color: white;
+
+    animation: backgroundAnimation 10s linear infinite alternate;
+}
+
+.temaClaroBody {
+    background: radial-gradient(circle at 50% 100%, #ffe, #ddc, #aa9);
+    color: black;
+    text-shadow: 2px 2px 0px white;
+}
+
+.temaEscuroBody {
+    /* background: radial-gradient(circle at 50% 100%, #222, #111, #000); */
+    background: black;
+    color: white;
+    text-shadow: 2px 2px 0px black;
+}
+
+.temaPadraoAside {
+    background: linear-gradient(45deg, #00a0df, #00f4df, #00a0df);
+}
+
+.temaPadraoAside p:hover, .temaPadraoAside a:hover {
+    background: #fffa;
+}
+
+.temaClaroAside p:hover, .temaClaroAside a:hover {
+    background: #fffa;
+}
+
+.temaClaroAside {
+    background: linear-gradient(45deg, #86a9a4, #acc, #8aa);
+}
+
+.temaEscuroAside {
+    background: linear-gradient(45deg, #444, #666, #555);
+}
+
+.temaEscuroAside p, .temaEscuroAside a {
+    color: white;
+    text-shadow: 2px 2px 0px black;    
+}
+
+.temaPadraoParagrafo {
+    background: linear-gradient(45deg, #f8f005, #f1c001, #fba008);
+
+    color: black;
+    text-shadow: 2px 2px 0 white;
+
+    box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33, 5px 5px 10px #002;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+a.temaPadraoParagrafo:hover, input.temaPadraoParagrafo:hover {
+    background: #f40;
+}
+
+.temaClaroParagrafo {
+    background: linear-gradient(45deg, #0005, #0002, #0007);
+
+    box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33, 5px 5px 10px #002;
+
+    color: black;
+    text-shadow: 0 2px 0px white, 0 3px 0px white;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.temaEscuroParagrafo {
+    background: linear-gradient(45deg, #333, #555, #444);
+
+    box-shadow: inset -50px -50px 50px #0000006d, inset 100px 100px 50px #ffffff33;
+
+    color: white;
+    text-shadow: 2px 2px 0px black;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemTemaEscuro {
+    filter: none;
+}
+
+
+/* padrao para display de textos */
+.flexTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+body {
+    height: 100vh;
+
+    padding: 5% 0;
+
+    font-family: sans-serif, 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px 0px black, 3px 3px 0px black;
+
+    user-select: none;
+    cursor: auto;
+}
+
+
+/* primeira tela mostrada */
+#telaInicial > a {
+    width: 60%;
+    height: 10%;
+
+    position: absolute;
+    top: 45%;
+    right: 20%;
+
+    margin: auto;
+
+    box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33, 5px 5px 10px #000a;
+    border-radius: 10px;
+
+    font-size: 2em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#telaInicial > a:hover {
+    transform: translate(0, -5%);
+}
+
+/* seguna tela mostrada(orientação) */
+#telaParaOrientacao {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: -100%;
+    left: 0;
+    
+    margin: auto;
+
+    font-size: 1.4em;
+    font-weight: 500;
+
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+#telaParaOrientacao:target {
+    top: 0;
+}
+
+#main {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 15vh auto;
+    border: solid 3px black;
+}
+
+.voltarPagina {
+    background-color: transparent;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 2%;
+    left: 0;
+
+    border: none;
+
+    color: white;
+    font-size: 25px;   
+    text-align: center;
+    text-decoration: none;
+
+    transition-duration: 1s;
+}
+
+.voltarPagina:hover {
+    transform: scale(.9);
+}
+
+legend p {
+    width: 100%;
+    height: 15vh;
+    border: none;
+}
+
+form input {
+    width: 100%;
+    height: 10vh;
+
+    margin: auto;
+    padding: 1%;
+
+    outline: none;
+    border: none;
+    border-top: solid 3px black;
+    border-bottom: solid 3px black;
+
+    font-weight: 500;
+    font-size: 1.4em;
+    text-shadow: 0 2px 0px black, 0 3px 0px black;
+
+    box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+form input:focus {
+    text-shadow: none;
+}
+
+form input:hover {
+    background: linear-gradient(45deg, #0005, #0002, #0006);
+}
+
+form a {
+    background: linear-gradient(45deg, #805, #d30082, #5b0038);
+
+    width: 100%;
+    height: 10vh;
+
+    margin: auto;
+    padding: 1% 0;
+
+    color: white;
+    font-size: 1.4em;
+    font-weight: 500;
+    text-decoration: none;
+
+    display: block;
+    box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33;
+}
+
+form a:hover {
+    background: linear-gradient(45deg, #0005, #0002, #0006);
+}
+
+
+/* terceira tela mostrada(countDown) */
+#telaCountDown {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: -100%;
+    left: 0;
+
+    opacity: 0;
+
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#telaCountDown:target {
+    opacity: 1;
+    top: 0;
+}
+
+/* classe voltar pagina aplicada aqui também*/
+
+div.mostradorNumeros {
+    position: relative;
+
+    width: 100%;
+
+    padding: 5% 0;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.display {
+    /* box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff23; */
+    background-color: #fff1;
+    width: 100%;
+
+    margin: 2% auto;
+    padding: 2% 5%;
+
+    /* border-radius: 10px; */
+    border: solid 3px black;
+    border-right: none;
+    border-left: none;
+
+    font-family: bold, Arial, Helvetica, sans-serif;
+    text-shadow: 6px 6px 0 black;
+    font-size: 8.5em;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+/* .mostradorNumeros p:first-of-type { */
+    /* width: 80%; */
+    /* height: 30%; */
+/*  */
+    /* margin: auto; */
+    /* border: solid 3px black; */
+    /*  */
+    /* font-weight: 500; */
+    /* font-size: 3em; */
+/* } */
+
+.description {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    word-spacing: 5vw;
+}
+
+
+/* tela de menu */
+div.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+div aside {
+    position: fixed;
+    right: 0;
+
+    width: 0;
+    height: 100%;
+
+    overflow: hidden;
+    box-shadow: -10px -10px 16px 0px #0005;
+
+    transition: width .5s ease-out;
+}
+
+#asideTransicao {
+    width: 30%;
+}
+
+aside p, aside a {
+    width: 100%;
+    height: 5%;
+
+    padding: 1% 0;
+
+    border: none;
+    border-bottom: solid 3px black;
+
+    color: black;
+    font-size: 2em;
+    font-weight: 500;
+    text-decoration: none;
+    text-shadow: 2px 2px 0px white;
+}
+
+aside > p:hover, aside > a:hover {
+    background: linear-gradient(45deg, #222, #444, #333);
+}
+
+aside p:active {
+    transform: scale(.99)
+}
+
+#relogioHoraAtual {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 100%;
+    height: min-content;
+    
+    padding: 1% 0;
+
+    color: black;
+    font-size: 1.8em;
+    font-family: bold, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-shadow: 1px 1px 0px white;
+
+    border-top: 3px solid black;
+    border-bottom: none;
+
+    display: block;
+}
+
+#relogioHoraAtual:hover {
+    background: #fffa;
+}
+
+
+/* media query */
+@media screen and (max-width: 1200px) {
+    .display {
+        font-size: 6.8em;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    #main {
+        font-size: .5em;
+    }
+
+    #main a.voltarPagina {
+        font-size: 5vw;
+    }
+
+    aside {
+        font-size: 2vw;
+    }
+
+    .display {
+        font-size: 4.5em;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .display {
+        font-size: 3.5em;
+    }
+
+    .mostradorNumeros > .voltarPagina {
+        top: -50%;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .display {
+        font-size: 2.5em;
+    }
+}

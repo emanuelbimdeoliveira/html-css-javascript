@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Emanuel Bim" />
+    <meta name="tittle" content="CountDown"/>
+   
+    <link rel="shortcut icon" href="arquivos/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="arquivos/countDown.css"/>
+    <link rel="stylesheet" href="arquivos/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css"/>
+    
+    <title>CountDown</title>
+</head>
+<body class="temaPadraoBody">
+    <section id="telaInicial">
+        <a href="#telaParaOrientacao" target="_self" class="temaPadraoParagrafo">Entrar</a>
+    </section>
+
+    <section id="telaParaOrientacao" class="temaPadraoBody">
+        <main id="main">
+            <a href="#" target="_self" class="voltarPagina fa-sharp fa-solid fa-angles-left"></a>
+            <legend><p class="temaPadraoParagrafo" style="font-size: 2em;">Adicione a hora final</p></legend>
+            <form autocomplete="on">
+                <input type="datetime-local" name="horaFinal" id="horaFinal" required class="temaPadraoParagrafo" value="2024-01-01T00:00">
+                <a href="#telaCountDown" class="temaPadraoParagrafo" target="_self">Avançar</a>
+            </form>
+        </main>
+    </section>  
+
+    <section id="telaCountDown" class="temaPadraoBody">
+        <div class="mostradorNumeros">
+            <a href="#telaParaOrientacao" target="_self" class="voltarPagina fa-solid fa-angles-left"></a>
+            <i id="menu" class="voltarPagina fa-solid fa-bars" style="left: auto; right: 0;"></i>
+            <p class="display flexTexto">00 : 00 : 00 : 00</p>    
+            <p class="description">Dias | Horas | Minutos | Segundos</p>    
+
+        </div>
+    </section>
+    <script src="arquivos/countDown.js"></script>
+</body>
+</html>
