@@ -1,0 +1,165 @@
+@keyframes animationBackground {
+    50% {
+        background-position-x: right;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    background: black;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border: solid 2px #484;
+}
+
+
+body {
+    background: linear-gradient(45deg, #262, #484);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: white url(imagens/Background-Header.jpg) no-repeat center center fixed;
+    background-size: 110% auto;
+
+    padding: 2% 5%;
+    height: 100vh;
+    
+    color: white;
+    box-shadow: inset 0 -40px 40px #0009;
+
+    animation: animationBackground 30s linear infinite alternate;
+}
+
+header nav {
+    width: 100%;
+    padding: 2% 5%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style-type: none;
+    width: 30%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+li:hover {
+    padding: 0;
+    background: #0006;
+
+    border-radius: 10px;
+}
+
+/* header li { */
+    /* display: inline-block; */
+    /* margin: 0 5%; */
+/* } */
+
+.banner {
+    background-color: #0305;
+    width: 90%;
+
+    margin: 8% auto;
+    padding: 5% 2%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+    font-size: 1.3em;
+}
+
+.banner ul {
+    width: max-content;
+    text-align: right;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+}
+
+main {
+    width: 100%;
+}
+
+section {
+    /* max-width: 1500px; */
+    padding: 5%;
+    margin: 2% auto;
+
+    color: white;
+    font-size: 1.3em;
+    text-align: justify;
+
+    border-bottom: solid 2px black;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section:nth-child(2n) {
+    flex-flow: row-reverse;
+}
+
+section article {
+    max-width: 50%;
+}
+
+article h2 {
+    color: #fa0;
+
+    font-size: 2em;
+    text-decoration: underline;
+    text-shadow: 2px 2px 0 black;
+}
+
+aside {
+    padding: 2%;
+}
+
+aside img {
+    width: 100%;
+}
+
+
+footer {
+    background-color: #020;
+    color: white;
+ 
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+footer div {
+    height: 100%;
+    padding: 2%;
+}
+
+footer div:last-of-type {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+footer nav p {
+    font-size: 2em;
+}
