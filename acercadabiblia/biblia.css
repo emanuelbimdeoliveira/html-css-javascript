@@ -1,0 +1,234 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    background: black;
+    width: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+body {
+    font-size: 1.5em;
+    background-color: #ffb;
+}
+
+menu {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    
+    color: white;
+    font-size: 1em;
+
+    z-index: 10;
+}
+
+.menu-actived {
+    color: black;
+}
+
+header {
+    padding: 5% 0;
+    background: #192025;
+    color: #ffe;
+    text-align: center;
+    height: 100vh;
+    font-variant: small-caps;
+}
+
+.imagemDeFundo {
+    background: #192025 url(imagens/bible-g2c5bcf30d_1280.png) no-repeat top center;
+    background-size: 80% auto;
+    margin: 4% auto 0;
+    width: 95vw;
+    height: 80%;
+}
+
+main {
+    text-align: justify;
+    /* border: ridge 3px black; */
+}
+
+nav {
+    background: #d7a770;
+
+    position: fixed;
+    top: 0;
+    left: 1.5%;
+
+    width: 0;
+    height: 100vh;
+
+    z-index: 5;
+    list-style-type: none;
+
+    padding-top: 50px;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    gap: 50px;
+
+    overflow: hidden;
+
+    transition: width .5s linear, left .6s;
+}
+
+.nav-showing {
+    width: 20%;
+    left: 0;
+}
+
+nav > li {
+    border-bottom: solid 3px black;
+    padding: 1% auto 1% 5%;
+}
+
+nav > li:hover, a:hover {
+    background: #0003;
+}
+
+section {
+    background: #ffd;
+
+    max-width: 800px;
+
+    margin: auto;
+    padding: 4% 3%;
+
+    line-height: 1.5;
+    opacity: 0;
+
+    box-shadow: 5px 0 5px #0004, -5px 0 5px #0004;
+    transform: translate3d(0, 10%, 0);
+    transition: transform .5s, opacity .5s;
+}
+
+
+.section_scroll {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+section:nth-child(odd) {
+    background: #192025;
+    color: #ffe;
+}
+
+section.list {
+    background-color: #ffd;
+    
+    width: 100vw;
+
+    padding: 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.list div {
+    background: url(imagens/white-pattern.jpg) center repeat fixed;
+    background-size: cover;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    position: relative;
+}
+
+section.list div::after {
+    content: "";
+
+    background: #fffa;
+
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+section.list > div > h3 {
+    width: 100%;
+
+    border: solid 3px black;
+    border-left: none;
+    border-right: none;
+
+    background: #d7a770;
+
+    color: #192025;
+    font-size: 1.3em;
+    
+    text-align: center;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #002;
+    padding: 2% 5%;
+}
+
+footer p {
+    color: #ffe;
+}
+
+footer a {
+    color: blue;
+
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+    header {
+        height: 70vh;       
+    }
+}
+
+@media screen and (max-width: 720px) {
+    header {
+        height: 20vh;       
+    }
+
+    .imagemDeFundo {
+        display: none;
+    }
+
+    main > section {
+        padding: 1% 5%;
+
+        font-size: .8em;
+    }
+
+    footer {
+        font-size: .6em;
+        text-align: justify;
+
+        columns: 50px 2;
+        column-rule: 2px ridge black;
+    }
+}
