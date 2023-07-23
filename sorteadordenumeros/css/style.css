@@ -177,6 +177,10 @@ nav {
     right: 2%;
 }
 
+.ocultable-buttons {
+    opacity: 0;
+}
+
 
 /* section das configurações */
 section#form > form {

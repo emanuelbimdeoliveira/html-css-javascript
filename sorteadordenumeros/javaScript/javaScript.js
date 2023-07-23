@@ -13,8 +13,9 @@ const buttonHistory = document.querySelector("#button-history");
 const display = document.querySelector("#main-display p");
 
 const history = [];
-const historyElement = document.querySelector("span")
+const historyElement = document.querySelector("span");
 
+const itens = document.querySelectorAll("#main-display .ocultable-buttons");
 
 // funções
 const randomNumber = () => {
@@ -89,4 +90,16 @@ body.addEventListener("keypress", (event) => {
     if (event.key == "h") {
         showHistory();
     }
+})
+
+body.addEventListener("mouseenter", () => {
+    itens.forEach((element) => {
+        element.style.opacity = "1";
+    })
+})
+
+body.addEventListener("mouseleave", () => {
+    itens.forEach((element) => {
+        element.style.opacity = "0";
+    })
 })
