@@ -1,0 +1,296 @@
+
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-body: #ffd;
+    --background-text: #0053;  
+    --background-text-hover: #0058;  
+    --background-clock: #fee;  
+    --text-color: "#000";
+    --text-color-hover: "#fff";
+    --text-shadow: 2px 2px 0 white;
+    --text-shadow-hover: 2px 2px 0 black;
+    --background-hours-hand: #223;
+    --background-minutes-hand: #889;
+    --background-seconds-hand: #f30;
+}
+
+body {
+    background: var(--background-body);
+
+    width: 100vw;
+    height: 100vh;
+
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+main > section.clock-display {
+    width: 500px;
+    height: 500px;
+
+    background: #fffa url(img/—Pngtree—watch\ clock\ numbers\ vector\ and_8654014-1000px.png) no-repeat center center;
+    background-size: 100% 100%;
+
+    
+    border-radius: 50%;
+    border: solid 3px black;
+    box-shadow: 5px 5px 10px #0008;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    position: relative;
+}
+
+main .centerDot {
+    background: var(--background-seconds-hand);
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+    border: solid 2px black;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: block;
+
+    z-index: 20;
+}
+
+main .hours, main .minutes, main .seconds {
+    width: 50%;
+    height: 50%;
+
+    position: absolute;
+}
+
+main .hours {
+    z-index: 1;
+}
+
+main .minutes {
+    z-index: 5;
+}
+
+main .seconds {
+    z-index: 10;
+}
+
+.hours .hours-hand, .minutes .minutes-hand, .seconds .seconds-hand {
+    border-radius: 5px;
+    border: solid 2px black;
+
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(0, -100%);
+}
+
+.seconds .seconds-hand {
+    background: var(--background-seconds-hand);
+
+    width: 7px;
+    height: 90%;
+
+    transform: translate(-50%, -80%);
+}
+
+.minutes .minutes-hand {
+    background: var(--background-minutes-hand);
+    
+    width: 9px;
+    height: 60%;
+    
+    transform: translate(-50%, -100%);
+}
+
+.hours .hours-hand {
+    background: var(--background-hours-hand);
+    
+    width: 10px;
+    height: 40%;
+
+    transform: translate(-50%, -100%);
+}
+
+
+section.digital-clock {
+    background: var(--background-text);
+
+    margin: 2% auto;
+    padding: 2% 5%;
+
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #0008;
+
+    color: var(--text-color);
+    font-weight: 800;
+    text-align: center;
+    text-shadow: var(--text-shadow);
+}
+
+span.big-numbers {
+    font-size: 4em;
+}
+
+
+span.small-numbers {
+    font-size: 3em;
+}
+
+
+aside {
+    width: 15%;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    transition: all .5s;
+}
+
+aside:hover i.fa-bars {
+    opacity: 1;
+}
+
+i.fa-bars {
+    background: var(--background-text);
+    color: var(--text-color);
+
+    opacity: 0;
+
+    width: 35px;
+    height: 35px;
+    
+    border: solid 2px;
+    border-radius: 10px;
+    
+    font-size: 1.5em;
+    text-shadow: var(--text-shadow);
+
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 4%;
+    right: 4%;
+
+    transition: all .5s;
+    z-index: 20;
+}
+
+i.fa-bars:hover {
+    background: var(--background-text-hover);
+
+    color: var(--text-color-hover);
+    text-shadow: var(--text-shadow-hover);
+}
+
+i.fa-bars:active {
+    transform: scale(.9);
+}
+
+/* aside of options */
+.aside-field {
+    background: var(--background-clock);
+
+    right: -100%;
+    z-index: 10;
+
+    border-left: solid 3px black;
+}
+
+.draw-menu-show {
+    opacity: 1;
+    right: 0 !important;
+}
+
+ul {
+    list-style-type: none;
+    color: var(--text-color);
+
+    margin: 40% auto;
+    height: 35%;
+
+    padding: 2% 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: start;
+}
+
+ul li {
+    border-bottom: solid 2px black;
+
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+ul li:hover {
+    background: var(--background-text-hover);
+
+    color: var(--text-color-hover);
+    text-shadow: var(--text-shadow-hover);
+}
+
+ul li:active {
+    transform: scale(.9);
+}
+
+@media screen and (max-width: 1000px) {
+    aside {
+        width: 30%;
+    }
+
+    ul {
+        margin: 40% auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main > section.clock-display {
+        width: 350px;
+        height: 350px;    
+    }
+
+    span.big-numbers {
+        font-size: 3em;
+    }
+    
+    
+    span.small-numbers {
+        font-size: 2em;
+    }    
+}
+
+@media screen and (max-width: 480px) {
+    ul {
+        margin: 80% auto;
+    }
+}
+
