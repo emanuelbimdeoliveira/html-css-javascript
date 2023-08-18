@@ -8,6 +8,9 @@ const fractionHeight = 25;
 
 const snakeHead = document.querySelector(".snake-head");
 
+let arrayOfElements;
+const arrayOfElementsNotNodeList = [];
+
 snakeHead.style.width = `${fractionWidth}px`;
 snakeHead.style.height = `${fractionHeight}px`;
 
@@ -35,6 +38,10 @@ const snakeMovement = () => {
     snakeHead.style.left = `${xPosition}px`;
     snakeHead.style.top = `${yPosition}px`;
 
+    if (arrayOfElementsNotNodeList.length > 1) {
+        changePositions();
+    }
+
     if (
         snakeHead.offsetLeft > gamePlace.offsetWidth - fractionWidth * 0.5 ||
         snakeHead.offsetLeft < 0 + fractionWidth * 0.5 ||
@@ -45,15 +52,55 @@ const snakeMovement = () => {
     }
 }
 
+// função para atualizar as posições dos elementos
+const changePositions = () => {
+    arrayOfElements = document.querySelectorAll(".snake-head");
+    const arrayOfPositions = [];
+    arrayOfElements.forEach((element) => {
+        arrayOfElementsNotNodeList.push(element);
+        const objectOfData = {
+            elementYPosition: element.offsetTop,
+            elementXPosition: element.offsetLeft
+        }
+        arrayOfPositions.push(objectOfData);
+    });
+    for (let i = 1; i < arrayOfElements.length; i++) {
+        arrayOfElements[i].style.top = `${arrayOfPositions[i - 1].elementYPosition}px`;
+        arrayOfElements[i].style.left = `${arrayOfPositions[i - 1].elementXPosition}px`;
+        console.log(arrayOfPositions);
+    }
+
+}
+
+
 // função para adicionar uma peça
 const addPiece = () => {
     const newPieceElement = document.createElement("span");
     newPieceElement.classList.add("snake-head");
-    
-    newPieceElement.style.top = yPosition;
-    newPieceElement.style.left = xPosition;
-    
+
     gamePlace.appendChild(newPieceElement);
+
+    newPieceElement.style.width = `${fractionWidth}px`;
+    newPieceElement.style.height = `${fractionHeight}px`;
+
+    newPieceElement.style.backgroundColor = "blue";
+    
+    switch (direction) {
+        case "toLeft":
+            xPosition += fractionWidth * 0.5;
+            break
+        case "toRight":
+            xPosition -= fractionWidth * 0.5;
+            break
+        case "toTop":
+            yPosition += fractionHeight * 0.5;
+            break
+        case "toBottom":
+            yPosition -= fractionHeight * 0.5;
+    }
+    
+    newPieceElement.style.left = `${xPosition}px`;
+    newPieceElement.style.top = `${yPosition}px`;
 }
 
 
@@ -80,6 +127,7 @@ document.querySelector("body").addEventListener("keypress", (event) => {
             break 
         case "a":
             addPiece();
+            changePositions();
             break     
         case "k":
             if (direction !== "toTop") {
@@ -89,3 +137,4 @@ document.querySelector("body").addEventListener("keypress", (event) => {
 });
 
 snakeMovement();
+changePositions();
