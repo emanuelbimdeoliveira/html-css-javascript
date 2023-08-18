@@ -23,16 +23,16 @@ let direction = "toBottom";
 const snakeMovement = () => {
     switch (direction) {
         case "toLeft":
-            xPosition -= fractionWidth * 0.5;
+            xPosition -= fractionWidth;
             break
         case "toRight":
-            xPosition += fractionWidth * 0.5;
+            xPosition += fractionWidth;
             break
         case "toTop":
-            yPosition -= fractionHeight * 0.5;
+            yPosition -= fractionHeight;
             break
         case "toBottom":
-            yPosition += fractionHeight * 0.5;
+            yPosition += fractionHeight;
     }
     
     snakeHead.style.left = `${xPosition}px`;
@@ -67,40 +67,42 @@ const changePositions = () => {
     for (let i = 1; i < arrayOfElements.length; i++) {
         arrayOfElements[i].style.top = `${arrayOfPositions[i - 1].elementYPosition}px`;
         arrayOfElements[i].style.left = `${arrayOfPositions[i - 1].elementXPosition}px`;
-        console.log(arrayOfPositions);
+        console.log(arrayOfPositions);    
     }
-
+    console.log(arrayOfPositions)
 }
 
 
 // função para adicionar uma peça
 const addPiece = () => {
-    const newPieceElement = document.createElement("span");
-    newPieceElement.classList.add("snake-head");
-
-    gamePlace.appendChild(newPieceElement);
-
-    newPieceElement.style.width = `${fractionWidth}px`;
-    newPieceElement.style.height = `${fractionHeight}px`;
-
-    newPieceElement.style.backgroundColor = "blue";
+    setTimeout(() => {
+        const newPieceElement = document.createElement("span");
+        newPieceElement.classList.add("snake-head");
     
-    switch (direction) {
-        case "toLeft":
-            xPosition += fractionWidth * 0.5;
-            break
-        case "toRight":
-            xPosition -= fractionWidth * 0.5;
-            break
-        case "toTop":
-            yPosition += fractionHeight * 0.5;
-            break
-        case "toBottom":
-            yPosition -= fractionHeight * 0.5;
-    }
+        gamePlace.appendChild(newPieceElement);
     
-    newPieceElement.style.left = `${xPosition}px`;
-    newPieceElement.style.top = `${yPosition}px`;
+        newPieceElement.style.width = `${fractionWidth}px`;
+        newPieceElement.style.height = `${fractionHeight}px`;
+    
+        newPieceElement.style.backgroundColor = "blue";
+        
+        switch (direction) {
+            case "toLeft":
+                xPosition += fractionWidth;
+                break
+            case "toRight":
+                xPosition -= fractionWidth;
+                break
+            case "toTop":
+                yPosition += fractionHeight;
+                break
+            case "toBottom":
+                yPosition -= fractionHeight;
+        }
+        
+        newPieceElement.style.left = `${xPosition}px`;
+        newPieceElement.style.top = `${yPosition}px`;    
+    }, 500);
 }
 
 
@@ -137,4 +139,5 @@ document.querySelector("body").addEventListener("keypress", (event) => {
 });
 
 snakeMovement();
+addPiece();
 changePositions();
