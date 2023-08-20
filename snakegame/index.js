@@ -19,6 +19,10 @@ let yPosition = fractionHeight * 5;
 
 let direction = "toBottom";
 
+// para alternar a cor de cada peça
+let colorPiece = ["#000", "#f70", "#fff"];
+let colorPieceIndex = 0;
+
 
 const snakeMovement = () => {
     switch (direction) {
@@ -67,9 +71,7 @@ const changePositions = () => {
     for (let i = 1; i < arrayOfElements.length; i++) {
         arrayOfElements[i].style.top = `${arrayOfPositions[i - 1].elementYPosition}px`;
         arrayOfElements[i].style.left = `${arrayOfPositions[i - 1].elementXPosition}px`;
-        console.log(arrayOfPositions);    
     }
-    console.log(arrayOfPositions)
 }
 
 
@@ -84,7 +86,13 @@ const addPiece = () => {
         newPieceElement.style.width = `${fractionWidth}px`;
         newPieceElement.style.height = `${fractionHeight}px`;
     
-        newPieceElement.style.backgroundColor = "blue";
+        colorPieceIndex++
+        newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
+        console.log(colorPiece[colorPieceIndex])
+        colorPieceIndex = colorPieceIndex > 2 ? 0 : colorPieceIndex;
+
+        // const colorPiece = Math.floor(Math.random() * 360);
+        // newPieceElement.style.backgroundColor = `hsl(${colorPiece}, 100%, 50%)`;
         
         switch (direction) {
             case "toLeft":
