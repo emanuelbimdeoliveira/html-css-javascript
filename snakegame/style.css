@@ -72,8 +72,20 @@ span.snake-head {
     animation-fill-mode: forwards;
 }
 
-span.snake-head:nth-child(2) {
+span.snake-piece:nth-child(2) {
     visibility: hidden;
+}
+
+.food {
+    background: var(--color-contrast);
+    width: 25px;
+    height: 25px;
+    border: var(--border);
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: 1s opacity-animation linear;
+    animation-fill-mode: forwards;
 }
 
 section.buttons {

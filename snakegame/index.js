@@ -1,13 +1,17 @@
 // "use strict";
 
+// DOM
 const main = document.querySelector("main");
 const gamePlace = document.querySelector(".game-place");
-
-const fractionWidth = 25;
-const fractionHeight = 25;
-
 const snakeHead = document.querySelector(".snake-head");
 
+// tamanho padrão
+const fractionWidth = 25;
+const fractionHeight = 25;
+const totalWidth = gamePlace.offsetWidth;
+const totalHeight = gamePlace.offsetHeight;
+
+// para alternar a posição de cada peça
 let arrayOfElements;
 const arrayOfElementsNotNodeList = [];
 
@@ -20,10 +24,17 @@ let yPosition = fractionHeight * 5;
 let direction = "toBottom";
 
 // para alternar a cor de cada peça
-let colorPiece = ["#000", "#f70", "#fff"];
-let colorPieceIndex = 0;
+let colorPiece = ["#f70", "#000", "#fff"];
+let colorPieceIndex = -1;
+
+// posição de cada alimento
+const foodPosition = {
+    x: 0,
+    y:0
+}
 
 
+// movimento por intervalo
 const snakeMovement = () => {
     switch (direction) {
         case "toLeft":
@@ -74,22 +85,39 @@ const changePositions = () => {
     }
 }
 
+// função para adicionar o alimento
+const addFood = () => {
+    const food = document.createElement("span");
+    food.classList.add("food");
+    gamePlace.appendChild(food);
+
+    console.log(totalHeight)
+
+    foodPosition.x = Math.floor(Math.random() * totalWidth);
+    foodPosition.y = Math.floor(Math.random() * totalHeight);
+    // if () {
+        // foodPosition.x = Math.floor(Math.random() * totalWidth);
+        // foodPosition.y = Math.floor(Math.random() * totalHeight);    
+    // }
+
+    food.style.top = `${foodPosition.y}px`;
+    food.style.left = `${foodPosition.x}px`;
+}
 
 // função para adicionar uma peça
 const addPiece = () => {
     setTimeout(() => {
         const newPieceElement = document.createElement("span");
         newPieceElement.classList.add("snake-head");
-    
+        
         gamePlace.appendChild(newPieceElement);
-    
+        
         newPieceElement.style.width = `${fractionWidth}px`;
         newPieceElement.style.height = `${fractionHeight}px`;
-    
+        
         colorPieceIndex++
         newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
-        console.log(colorPiece[colorPieceIndex])
-        colorPieceIndex = colorPieceIndex > 2 ? 0 : colorPieceIndex;
+        colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;
 
         // const colorPiece = Math.floor(Math.random() * 360);
         // newPieceElement.style.backgroundColor = `hsl(${colorPiece}, 100%, 50%)`;
@@ -137,6 +165,7 @@ document.querySelector("body").addEventListener("keypress", (event) => {
             break 
         case "a":
             addPiece();
+            addFood();
             changePositions();
             break     
         case "k":
