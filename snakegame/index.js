@@ -25,6 +25,8 @@ for (let i = fractionHeight; i < totalHeight; i += fractionHeight) {
 let arrayOfElements;
 const arrayOfElementsNotNodeList = [];
 
+let arrayOfPositions = [];
+
 snakeHead.style.width = `${fractionWidth}px`;
 snakeHead.style.height = `${fractionHeight}px`;
 
@@ -79,8 +81,8 @@ const snakeMovement = () => {
 
 // função para atualizar as posições dos elementos
 const changePositions = () => {
+    arrayOfPositions = [];
     arrayOfElements = document.querySelectorAll(".snake-head");
-    const arrayOfPositions = [];
     arrayOfElements.forEach((element) => {
         arrayOfElementsNotNodeList.push(element);
         const objectOfData = {
@@ -101,12 +103,16 @@ const addFood = () => {
     food.classList.add("food");
     gamePlace.appendChild(food);
 
-    const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
-    const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
+    const testToChoosePositionFood = () => {
+        const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
+        const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
+    
+        foodPosition.x = possiblePositionsX[randomPositionX];
+        foodPosition.y = possiblePositionsY[randomPositionY];        
+    }
 
-    foodPosition.x = possiblePositionsX[randomPositionX];
-    foodPosition.y = possiblePositionsY[randomPositionY];    
-
+    testToChoosePositionFood();
+     
     food.style.top = `${foodPosition.y}px`;
     food.style.left = `${foodPosition.x}px`;
 }
