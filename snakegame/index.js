@@ -6,10 +6,20 @@ const gamePlace = document.querySelector(".game-place");
 const snakeHead = document.querySelector(".snake-head");
 
 // tamanho padrão
-const fractionWidth = 25;
-const fractionHeight = 25;
+const fractionWidth = 20;
+const fractionHeight = 20;
 const totalWidth = gamePlace.offsetWidth;
 const totalHeight = gamePlace.offsetHeight;
+
+// posições possíveis para o alimento
+const possiblePositionsX = [];
+const possiblePositionsY = [];
+for (let i = fractionWidth; i < totalWidth; i += fractionWidth) {
+    possiblePositionsX.push(i);
+}
+for (let i = fractionHeight; i < totalHeight; i += fractionHeight) {
+    possiblePositionsY.push(i);
+}
 
 // para alternar a posição de cada peça
 let arrayOfElements;
@@ -30,7 +40,7 @@ let colorPieceIndex = -1;
 // posição de cada alimento
 const foodPosition = {
     x: 0,
-    y:0
+    y: 0
 }
 
 
@@ -91,14 +101,11 @@ const addFood = () => {
     food.classList.add("food");
     gamePlace.appendChild(food);
 
-    console.log(totalHeight)
+    const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
+    const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
 
-    foodPosition.x = Math.floor(Math.random() * totalWidth);
-    foodPosition.y = Math.floor(Math.random() * totalHeight);
-    // if () {
-        // foodPosition.x = Math.floor(Math.random() * totalWidth);
-        // foodPosition.y = Math.floor(Math.random() * totalHeight);    
-    // }
+    foodPosition.x = possiblePositionsX[randomPositionX];
+    foodPosition.y = possiblePositionsY[randomPositionY];    
 
     food.style.top = `${foodPosition.y}px`;
     food.style.left = `${foodPosition.x}px`;
