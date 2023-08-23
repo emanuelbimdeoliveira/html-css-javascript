@@ -65,8 +65,21 @@ const snakeMovement = () => {
     snakeHead.style.left = `${xPosition}px`;
     snakeHead.style.top = `${yPosition}px`;
 
-    if (arrayOfElementsNotNodeList.length > 1) {
+    if (arrayOfElementsNotNodeList.length > 0) {
         changePositions();
+    }
+
+    if (xPosition == foodPosition.x && yPosition == foodPosition.y) {
+        gamePlace.removeChild(document.querySelector("span.food"));
+        addPiece();
+        addFood();
+    }
+
+    const testOfHit = () => {
+        return snakeHead.offsetHeight == 
+        arrayOfPositions.some(() => {
+            
+        })
     }
 
     if (
@@ -176,11 +189,6 @@ document.querySelector("body").addEventListener("keypress", (event) => {
                 direction = "toTop";
             }
             break 
-        case "a":
-            addPiece();
-            addFood();
-            changePositions();
-            break     
         case "k":
             if (direction !== "toTop") {
                 direction = "toBottom";
@@ -188,6 +196,12 @@ document.querySelector("body").addEventListener("keypress", (event) => {
     }
 });
 
+
 snakeMovement();
 addPiece();
 changePositions();
+addFood();
+
+// setTimeout(() => {
+    // addFood();
+// }, 1000);
