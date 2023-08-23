@@ -75,18 +75,15 @@ const snakeMovement = () => {
         addFood();
     }
 
-    const testOfHit = () => {
-        return snakeHead.offsetHeight == 
-        arrayOfPositions.some(() => {
-            
-        })
+    if (testOfHit()) {
+        clearInterval(interval);
     }
 
     if (
-        snakeHead.offsetLeft > gamePlace.offsetWidth - fractionWidth * 0.5 ||
-        snakeHead.offsetLeft < 0 + fractionWidth * 0.5 ||
-        snakeHead.offsetTop > gamePlace.offsetHeight - fractionHeight * 0.5 ||
-        snakeHead.offsetTop < 0 + fractionHeight * 0.5
+        xPosition > gamePlace.offsetWidth - fractionWidth * 0.5 ||
+        xPosition < 0 + fractionWidth * 0.5 ||
+        yPosition > gamePlace.offsetHeight - fractionHeight * 0.5 ||
+        yPosition < 0 + fractionHeight * 0.5
        ) {
         clearInterval(interval);
     }
@@ -96,7 +93,15 @@ const snakeMovement = () => {
 const changePositions = () => {
     arrayOfPositions = [];
     arrayOfElements = document.querySelectorAll(".snake-head");
-    arrayOfElements.forEach((element) => {
+    arrayOfElements.forEach((element) => {    const testOfHit = () => {
+        for (let i = 2; i < arrayOfPositions.length; i++) {
+            if (arrayOfPositions[i].elementXPosition == snakeHead.offsetLeft &&
+                arrayOfPositions[i].elementYPosition == snakeHead.offsetTop) {
+                    return true
+                }
+        }
+    }
+
         arrayOfElementsNotNodeList.push(element);
         const objectOfData = {
             elementYPosition: element.offsetTop,
@@ -165,6 +170,16 @@ const addPiece = () => {
         newPieceElement.style.left = `${xPosition}px`;
         newPieceElement.style.top = `${yPosition}px`;    
     }, 500);
+}
+
+// função que testa se a cabeça bate no seu corpo
+const testOfHit = () => {
+    for (let i = 2; i < arrayOfPositions.length; i++) {
+        if (arrayOfPositions[i].elementXPosition == xPosition &&
+            arrayOfPositions[i].elementYPosition == yPosition) {
+                return true
+            }
+    }
 }
 
 
