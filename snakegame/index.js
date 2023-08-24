@@ -11,6 +11,12 @@ const fractionHeight = 20;
 const totalWidth = gamePlace.offsetWidth;
 const totalHeight = gamePlace.offsetHeight;
 
+// score e highScore
+let score = 0;
+let highScore = localStorage.getItem("highScore") || 0;
+const scorePlace = document.querySelector("span#score");
+const highScorePlace = document.querySelector("span#high-score");
+
 // posições possíveis para o alimento
 const possiblePositionsX = [];
 const possiblePositionsY = [];
@@ -65,18 +71,19 @@ const snakeMovement = () => {
     snakeHead.style.left = `${xPosition}px`;
     snakeHead.style.top = `${yPosition}px`;
 
-    if (arrayOfElementsNotNodeList.length > 0) {
-        changePositions();
-    }
+    changePositions();
 
     if (xPosition == foodPosition.x && yPosition == foodPosition.y) {
         gamePlace.removeChild(document.querySelector("span.food"));
         addPiece();
         addFood();
+        score++
+        scorePlace.textContent = score.toString().padStart(2, "0");
     }
 
     if (testOfHit()) {
         clearInterval(interval);
+        gameOver();
     }
 
     if (
@@ -86,6 +93,7 @@ const snakeMovement = () => {
         yPosition < 0 + fractionHeight * 0.5
        ) {
         clearInterval(interval);
+        gameOver();
     }
 }
 
@@ -93,15 +101,7 @@ const snakeMovement = () => {
 const changePositions = () => {
     arrayOfPositions = [];
     arrayOfElements = document.querySelectorAll(".snake-head");
-    arrayOfElements.forEach((element) => {    const testOfHit = () => {
-        for (let i = 2; i < arrayOfPositions.length; i++) {
-            if (arrayOfPositions[i].elementXPosition == snakeHead.offsetLeft &&
-                arrayOfPositions[i].elementYPosition == snakeHead.offsetTop) {
-                    return true
-                }
-        }
-    }
-
+    arrayOfElements.forEach((element) => {
         arrayOfElementsNotNodeList.push(element);
         const objectOfData = {
             elementYPosition: element.offsetTop,
@@ -121,15 +121,11 @@ const addFood = () => {
     food.classList.add("food");
     gamePlace.appendChild(food);
 
-    const testToChoosePositionFood = () => {
-        const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
-        const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
-    
-        foodPosition.x = possiblePositionsX[randomPositionX];
-        foodPosition.y = possiblePositionsY[randomPositionY];        
-    }
+    const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
+    const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
 
-    testToChoosePositionFood();
+    foodPosition.x = possiblePositionsX[randomPositionX];
+    foodPosition.y = possiblePositionsY[randomPositionY];        
      
     food.style.top = `${foodPosition.y}px`;
     food.style.left = `${foodPosition.x}px`;
@@ -182,6 +178,27 @@ const testOfHit = () => {
     }
 }
 
+const reloadPage = () => location.reload();
+
+const gameOver = () => {
+    const gameOverScreen = document.createElement("section");
+    gameOverScreen.classList.add("game-over-screen");
+
+    highScore = score > highScore ? score : highScore;
+    localStorage.setItem("highScore", highScore);
+    
+    gameOverScreen.innerHTML = `
+        <div>
+            <h1>Game Over!!!</h1>
+            <p>Pontuação: <span id="score">${score.toString().padStart(2, "0")}</span></p>
+            <p>Maior Pontuação: <span id="high-score">${highScore.toString().padStart(2, "0")}</span></p>
+            <button id="button-to-reload" onclick="reloadPage()">Reiniciar</button>
+            </div>
+    `;
+
+    main.appendChild(gameOverScreen);
+}
+
 
 // eventos e chamados de funções
 const interval = setInterval(snakeMovement, 300);
@@ -217,6 +234,4 @@ addPiece();
 changePositions();
 addFood();
 
-// setTimeout(() => {
-    // addFood();
-// }, 1000);
+highScorePlace.textContent = highScore.toString().padStart(2, "0");
