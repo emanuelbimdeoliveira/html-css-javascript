@@ -97,6 +97,31 @@ const snakeMovement = () => {
     }
 }
 
+const changeDirection = (event) => {
+    console.log(event)
+    if (event.key == "j" || event.target.id == "0") {
+        if(direction !== "toRight") {
+            direction = "toLeft";
+        }
+    } 
+    if (event.key == "l" || event.target.id == "1") {
+        if(direction !== "toLeft") {
+            direction = "toRight";
+        }
+    } 
+    if (event.key == "i" || event.target.id == "2") {
+        if(direction !== "toBottom") {
+            direction = "toTop";
+        }
+    }
+    if (event.key == "k" || event.target.id == "3") {
+        if(direction !== "toTop") {
+            direction = "toBottom";
+        }
+    }
+    event.key;
+}
+
 // função para atualizar as posições dos elementos
 const changePositions = () => {
     arrayOfPositions = [];
@@ -178,8 +203,7 @@ const testOfHit = () => {
     }
 }
 
-const reloadPage = () => location.reload();
-
+// função game over
 const gameOver = () => {
     const gameOverScreen = document.createElement("section");
     gameOverScreen.classList.add("game-over-screen");
@@ -193,41 +217,26 @@ const gameOver = () => {
             <p>Pontuação: <span id="score">${score.toString().padStart(2, "0")}</span></p>
             <p>Maior Pontuação: <span id="high-score">${highScore.toString().padStart(2, "0")}</span></p>
             <button id="button-to-reload" onclick="reloadPage()">Reiniciar</button>
-            </div>
-    `;
-
-    main.appendChild(gameOverScreen);
-}
-
+        </div>
+            `;
+            
+            main.appendChild(gameOverScreen);
+        }
+        
+const reloadPage = () => location.reload();
+        
 
 // eventos e chamados de funções
 const interval = setInterval(snakeMovement, 300);
 
 
-document.querySelector("body").addEventListener("keypress", (event) => {
-    switch (event.key) {
-        case "j":
-            if (direction !== "toRight") {
-                direction = "toLeft";
-            }
-            break 
-        case "l":
-            if (direction !== "toLeft") {
-                direction = "toRight";
-            }
-            break 
-        case "i":
-            if (direction !== "toBottom") {
-                direction = "toTop";
-            }
-            break 
-        case "k":
-            if (direction !== "toTop") {
-                direction = "toBottom";
-            }
-    }
-});
+document.querySelector("body").addEventListener("keypress", changeDirection);
 
+const buttons = document.querySelectorAll("i");
+buttons.forEach((element, index) => {
+    element.id = index;
+    element.addEventListener("click", changeDirection);
+});
 
 snakeMovement();
 addPiece();
