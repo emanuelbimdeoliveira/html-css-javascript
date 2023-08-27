@@ -94,7 +94,7 @@ section.game-place {
 }
 
 span.snake-head {
-    background: var(--color-contrast);
+    background: black;
     width: 50px;
     height: 50px;
     border: var(--border);

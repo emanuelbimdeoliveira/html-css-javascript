@@ -148,6 +148,10 @@ const addFood = () => {
     food.classList.add("food");
     gamePlace.appendChild(food);
 
+    colorPieceIndex++
+    food.style.backgroundColor = colorPiece[colorPieceIndex];
+    colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;
+
     const randomPositionX = Math.floor(Math.random() * possiblePositionsX.length);
     const randomPositionY = Math.floor(Math.random() * possiblePositionsY.length);
 
@@ -170,10 +174,8 @@ const addPiece = () => {
         newPieceElement.style.height = `${fractionHeight}px`;
         
         colorPieceIndex++
-        // newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
-        // colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;
-        const colorPiece = Math.floor(Math.random() * 360);
-        newPieceElement.style.backgroundColor = `hsl(${colorPiece}, 100%, 50%)`;
+        newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
+        colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;    
         
         switch (direction) {
             case "toLeft":
@@ -257,6 +259,5 @@ const startFunction = () => {
 }
 
 startScreen();
-
 
 highScorePlace.textContent = highScore.toString().padStart(2, "0");
