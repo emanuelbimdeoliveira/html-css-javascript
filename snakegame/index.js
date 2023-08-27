@@ -17,6 +17,9 @@ let highScore = localStorage.getItem("highScore") || 0;
 const scorePlace = document.querySelector("span#score");
 const highScorePlace = document.querySelector("span#high-score");
 
+// variável intervalo
+let interval;
+
 // posições possíveis para o alimento
 const possiblePositionsX = [];
 const possiblePositionsY = [];
@@ -98,7 +101,6 @@ const snakeMovement = () => {
 }
 
 const changeDirection = (event) => {
-    console.log(event)
     if (event.key == "j" || event.target.id == "0") {
         if(direction !== "toRight") {
             direction = "toLeft";
@@ -168,11 +170,10 @@ const addPiece = () => {
         newPieceElement.style.height = `${fractionHeight}px`;
         
         colorPieceIndex++
-        newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
-        colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;
-
-        // const colorPiece = Math.floor(Math.random() * 360);
-        // newPieceElement.style.backgroundColor = `hsl(${colorPiece}, 100%, 50%)`;
+        // newPieceElement.style.backgroundColor = colorPiece[colorPieceIndex];
+        // colorPieceIndex = colorPieceIndex >= 2 ? -1 : colorPieceIndex;
+        const colorPiece = Math.floor(Math.random() * 360);
+        newPieceElement.style.backgroundColor = `hsl(${colorPiece}, 100%, 50%)`;
         
         switch (direction) {
             case "toLeft":
@@ -218,18 +219,14 @@ const gameOver = () => {
             <p>Maior Pontuação: <span id="high-score">${highScore.toString().padStart(2, "0")}</span></p>
             <button id="button-to-reload" onclick="reloadPage()">Reiniciar</button>
         </div>
-            `;
-            
-            main.appendChild(gameOverScreen);
-        }
+    `;        
+    main.appendChild(gameOverScreen);
+}
         
 const reloadPage = () => location.reload();
         
 
 // eventos e chamados de funções
-const interval = setInterval(snakeMovement, 300);
-
-
 document.querySelector("body").addEventListener("keypress", changeDirection);
 
 const buttons = document.querySelectorAll("i");
@@ -238,9 +235,28 @@ buttons.forEach((element, index) => {
     element.addEventListener("click", changeDirection);
 });
 
-snakeMovement();
-addPiece();
-changePositions();
-addFood();
+const startScreen = () => {
+    const startScreen = document.createElement('section');
+    startScreen.innerHTML = `
+        <section class="start-screen">
+            <button id="start-button">Iniciar</button>
+        </section>
+    `;
+    main.appendChild(startScreen);
+    document.querySelector("button#start-button").addEventListener("click", startFunction);
+}
+
+const startFunction = () => {
+    const screenToRemove = document.querySelector("section.start-screen");
+    screenToRemove.style.display = "none";
+    interval = setInterval(snakeMovement, 300);
+    snakeMovement();
+    addPiece();
+    changePositions();
+    addFood();    
+}
+
+startScreen();
+
 
 highScorePlace.textContent = highScore.toString().padStart(2, "0");
