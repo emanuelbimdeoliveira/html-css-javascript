@@ -1,0 +1,186 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-1: #eee;
+    --background-2: #ccc;
+    --background-3: #aaa;
+    --border: solid 2px;
+    --border-radius: 10px;
+    --box-shadow: 5px 5px 8px #0005;
+    /* --top: 500px; */
+    /* --top: 500px; */
+    /* --left: 500px; */
+}
+
+body {
+    background: var(--background-3);
+    padding: 1%;
+}
+
+header {
+    background: var(--background-1);
+    height: 15vh;
+    width: 100%;
+    padding: 2.5%;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+section {
+    background: var(--background-1);
+    width: 80%;
+    margin: 1% auto;
+    padding: 2%;
+    box-shadow: var(--box-shadow);
+}
+
+
+/* interruptor */
+.toggle-switch > div {
+    background: var(--background-2);
+    width: 60px;
+    height: 30px;
+    margin: 1% 5% 0;
+    padding: 1px;
+    border: var(--border);
+    color: blue;
+    position: relative;
+}
+
+.toggle-switch span {
+    background-color: var(--background-1);
+    width: 50%;
+    height: 100%;
+    display: block;
+    border: var(--border);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+}
+
+.active {
+    background: blue !important;
+    color: white !important;
+    transform: translateX(100%);
+}
+
+.circle {
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.circle span {
+    border-radius: 50%;
+}
+
+
+/* loader */
+@keyframes turnning {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.loader div {
+    width: 50px;
+    height: 50px;
+    margin: 1% 5% 0;
+    border: solid 10px var(--background-2);
+    border-top: solid 10px #2a2;
+    outline: solid black 2px;
+    border-radius: 50%;
+    animation: turnning 1.5s linear infinite;
+}
+
+
+/* tabela dinâmica */
+fieldset {
+    width: 800px;
+    margin: 1% 5% 0;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+input {
+    width: 90%;
+    height: 40px;
+    padding: 1% 2%;
+    display: block;
+    float: left;
+    border: none;
+}
+
+i {
+    background: var(--background-3);
+    width: 10%;
+    height: 40px;
+    padding: 14px 30px;
+    display: block;
+}
+
+table {
+    background: var(--background-3);
+    width: 800px;
+    margin: 1% 5% 0;
+    border-collapse: collapse;
+    box-shadow: var(--box-shadow);
+}
+
+thead {
+    background: var(--background-1);
+}
+
+tr {
+    height: 10%;
+}
+
+tr:nth-child(2n) {
+    background: var(--background-2);
+}
+
+th, td {
+    color: black;
+    border: solid 2px black;
+    padding: 1%;
+}
+
+
+/* imagens com zoom */
+.image {
+    background: var(--background-3) url(imagens/valey.jpg) no-repeat center center;
+    background-size: cover;
+    width: 800px;
+    height: 400px;
+    margin: 1% 5% 0;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.magnifying {
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    border: var(--border);
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    transform: translate(-50%, -50%);
+}
+
+.zoom {
+    background: var(--background-3) url(imagens/valey.jpg) no-repeat;
+    background-size: 2000px 2000px;
+    background-position: -50% -50%;
+    width: 200px;
+    height: 200px;   
+    margin: 1% 5% 0;
+    box-shadow: var(--box-shadow);
+}
+
