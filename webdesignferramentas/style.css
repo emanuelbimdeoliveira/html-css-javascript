@@ -34,7 +34,13 @@ nav {
     background: black;
     width: 80%;
     margin: 1% auto;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
+    opacity: 1;
     box-shadow: var(--box-shadow);
+    transition: all 1s;
 }
 
 nav ul {
@@ -57,6 +63,10 @@ nav ul li:hover {
 
 nav ul li:last-of-type {
     border-right: 2px solid;
+}
+
+.shrink-nav {
+    opacity: 0;
 }
 
 

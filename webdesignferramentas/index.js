@@ -22,6 +22,7 @@ const toggleSwitch = (event) => {
     })
 }
 
+
 toggleButton.forEach((element, index) => {
     element.id = index;
     element.addEventListener("click", toggleSwitch);
@@ -45,6 +46,7 @@ const arrayOfTableData = [
 const input = document.querySelector("input#search");
 const table = document.querySelector("table");
 
+
 const updateTable = () => {
     table.innerHTML = "";
     arrayOfTableData.forEach((element) => {
@@ -60,14 +62,18 @@ const updateTable = () => {
     })
 }
 
+
 updateTable();
 document.querySelector("input#search").addEventListener("input", updateTable);
+
+
 
 
 // imagens com zoom
 const imagePlace = document.querySelector("div.image");
 const zoomPlace = document.querySelector("div.zoom");
 const magnifying = document.querySelector("div.magnifying");
+
 
 const moveMagnifying = (event) => {
     const y = event.pageY - imagePlace.offsetTop;
@@ -83,7 +89,10 @@ const moveMagnifying = (event) => {
     zoomPlace.style.backgroundPosition = `${porcentageX}% ${porcentageY}%`;        
 }
 
+
 imagePlace.addEventListener("mousemove", moveMagnifying);
+
+
 
 
 // cortina entre imagens
@@ -110,3 +119,25 @@ containerOfImages.addEventListener("mouseup", () => {
     containerOfImages.removeEventListener("mousemove", changeCurtain);
 });
 
+
+
+
+// menu de navegação
+const nav = document.querySelector("nav");
+let previusScroll, currentScroll;
+
+
+const navOnScroll = () => {
+    currentScroll = window.scrollY;
+
+    if (currentScroll > previusScroll && currentScroll > 250) {
+        nav.classList.add("shrink-nav");
+    } else if (currentScroll < previusScroll && currentScroll > 250) {
+        nav.classList.remove("shrink-nav");
+    }
+
+    previusScroll = window.scrollY;
+}
+
+
+window.addEventListener("scroll", navOnScroll);
