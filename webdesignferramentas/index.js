@@ -60,6 +60,7 @@ const updateTable = () => {
     })
 }
 
+updateTable();
 document.querySelector("input#search").addEventListener("input", updateTable);
 
 
@@ -72,18 +73,40 @@ const moveMagnifying = (event) => {
     const y = event.pageY - imagePlace.offsetTop;
     const x = event.pageX - imagePlace.offsetLeft;
 
-    // if () {
-            const porcentageY = Math.round(y / (imagePlace.offsetHeight / 100));
-            const porcentageX = Math.round(x / (imagePlace.offsetWidth / 100));
-        
-            event.preventDefault();
-            magnifying.style.top = `${y}px`;
-            magnifying.style.left = `${x}px`;
-        
-            // zoomPlace.style.backgroundPosition = `-${20 * porcentageX - 100}px -${20 * porcentageY - 100}px`;
-            zoomPlace.style.backgroundPosition = `${porcentageX}% ${porcentageY}%`;        
-    }
-// }
+    const porcentageY = Math.round(y / (imagePlace.offsetHeight / 100));
+    const porcentageX = Math.round(x / (imagePlace.offsetWidth / 100));
+
+    event.preventDefault();
+    magnifying.style.top = `${y}px`;
+    magnifying.style.left = `${x}px`;
+
+    zoomPlace.style.backgroundPosition = `${porcentageX}% ${porcentageY}%`;        
+}
 
 imagePlace.addEventListener("mousemove", moveMagnifying);
+
+
+// cortina entre imagens
+const locatorOfCurtain = document.querySelector("span#locator");
+const section = document.querySelector(".image-comparison-slider");
+const containerOfImages = document.querySelector(".container-of-images");
+const firstImage = document.querySelector(".image-comparison-slider > div > div:first-of-type");
+
+
+const changeCurtain = (event) => {
+    const positionX = event.pageX - containerOfImages.offsetLeft;
+    locatorOfCurtain.style.left = `${positionX}px`;
+
+    firstImage.style.width = `${positionX}px`;
+    firstImage.style.backgroundSize = `${section.offsetWidth}px`;
+}
+
+
+containerOfImages.addEventListener("mousedown", () => {
+    containerOfImages.addEventListener("mousemove", changeCurtain);
+});
+
+containerOfImages.addEventListener("mouseup", () => {
+    containerOfImages.removeEventListener("mousemove", changeCurtain);
+});
 
