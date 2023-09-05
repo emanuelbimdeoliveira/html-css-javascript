@@ -1,0 +1,145 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    transition: transform .5s;
+}
+
+:root {
+    --white-1: #eff;
+    --white-2: #dee;
+    --white-3: #abb;
+    --blue-1: #43f;
+    --blue-2: #09f;
+    --red-1: #f00;
+    --red-2: #f33;
+    --border: solid 2px;
+    --border-radius: 5px;
+    --box-shadow: 5px 5px 10px #0003;
+    --padding: 2% 1%;
+    --width: 80%;
+}
+
+body {
+    background: var(--white-3);
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    background: var(--white-2);
+    width: 800px;
+    margin: 5% auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+h1 {
+    background: var(--blue-1);
+    width: 100%;
+    padding: var(--padding);
+    text-align: center;
+    color: var(--white-1);
+}
+
+form {
+    margin: auto;
+}
+
+fieldset {
+    background: var(--white-1);
+    width: 100%;
+    height: 80px;
+    padding: 1% 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text] {
+    width: 70%;
+    height: 80%;
+    font-size: 1em;
+    font-weight: 600;
+    display: block;
+    padding: 2%;
+    outline: none;
+    box-shadow: var(--box-shadow);
+}
+
+input[type=button] {
+    background: var(--blue-1);
+    width: 10%;
+    height: 80%;
+    color: var(--white-1);
+    box-shadow: var(--box-shadow);
+}
+
+input[type=button]:hover {
+    background: var(--blue-2);
+}
+
+input[type=button]:active {
+    transform: scale(.9);
+}
+
+section {
+
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    padding: var(--padding);
+}
+
+li {
+    background: var(--white-1);
+    padding: var(--padding);
+    width: var(--width);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li input[type=button] {
+    background: var(--red-1);
+    width: 5%;
+    padding: 1%;
+}
+
+li input[type=button]:hover {
+    background: var(--red-2);
+}
+
+li input[type=checkbox] {
+    background: var(--blue-1);
+    width: 5%;
+    height: 20px;
+}
+
+li input[type=checkbox]:checked ~ label {
+    text-decoration: line-through;
+}
+
+li label {
+    width: 90%;
+    font-size: 1.5em;
+    text-align: left;
+    font-weight: 600;
+}
+
+li:hover {
+    background: var(--white-3);
+}
