@@ -27,8 +27,8 @@ const addTask = () => {
 }
 
 const updateScreen = () => {
-    tasks = localStorage.getItem("tasks") || [];
-    arrayOfTasks = JSON.parse(tasks);
+    // tasks = localStorage.getItem("tasks") || [];
+    // arrayOfTasks = JSON.parse(tasks);
 
     unorderedList.innerHTML = '';
 
