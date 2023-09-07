@@ -1,6 +1,6 @@
 "use strict";
 
-// let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks;
 let arrayOfTasks = [];
 
 const textInput = document.querySelector("#task-input");
@@ -27,8 +27,8 @@ const addTask = () => {
 }
 
 const updateScreen = () => {
-    // tasks = localStorage.getItem("tasks") || [];
-    // arrayOfTasks = JSON.parse(tasks);
+    tasks = localStorage.getItem("tasks") || [];
+    arrayOfTasks = JSON.parse(tasks);
 
     unorderedList.innerHTML = '';
 
