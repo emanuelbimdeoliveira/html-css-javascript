@@ -1,7 +1,7 @@
 "use strict";
 
-let tasks = localStorage.getItem("tasks") || [];
-let arrayOfTasks = JSON.parse(tasks);
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let arrayOfTasks = tasks;
 
 const textInput = document.querySelector("#task-input");
 const buttonInput = document.querySelector("#save-button");
