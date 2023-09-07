@@ -25,12 +25,13 @@
 body {
     background: var(--white-3);
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
 }
 
 main {
     background: var(--white-2);
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     margin: 5% auto;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -88,7 +89,7 @@ input[type=button]:active {
 }
 
 section {
-
+    min-height: 200px;
 }
 
 ul {
@@ -142,4 +143,8 @@ li label {
 
 li:hover {
     background: var(--white-3);
+}
+
+@media screen and (max-width: ) {
+    
 }

@@ -1,6 +1,7 @@
 "use strict";
 
-const arrayOfTasks = [];
+let tasks = localStorage.getItem("tasks") || [];
+let arrayOfTasks = JSON.parse(tasks);
 
 const textInput = document.querySelector("#task-input");
 const buttonInput = document.querySelector("#save-button");
@@ -19,12 +20,16 @@ const addTask = () => {
 
     arrayOfTasks.push(task);
 
-    updateScreen();
-
     textInput.value = "";
+        
+    localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
+    updateScreen();
 }
 
 const updateScreen = () => {
+    tasks = localStorage.getItem("tasks") || [];
+    arrayOfTasks = JSON.parse(tasks);
+
     unorderedList.innerHTML = '';
 
     arrayOfTasks.forEach((element, index) => {
@@ -42,11 +47,15 @@ const updateScreen = () => {
 
 const check = (index) => {
     arrayOfTasks[index].checked = arrayOfTasks[index].checked == "checked" ? "unchecked" : "checked";
+    
+    localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
     updateScreen();
 }
 
 const deleteTask = (index) => {
     arrayOfTasks.splice(index, 1);    
+    
+    localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
     updateScreen();
 }
 
@@ -54,9 +63,10 @@ const deleteTask = (index) => {
 buttonInput.addEventListener("click", addTask);
 
 window.addEventListener("keypress", (event) => {
-    console.log(event)
     if (event.key == "Enter") {
         event.preventDefault();
         addTask();
     }
 })
+
+updateScreen();
