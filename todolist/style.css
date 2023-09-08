@@ -114,14 +114,28 @@ li {
     align-items: center;
 }
 
+.without-tasks {
+    background: var(--blue-1) !important;
+    color: var(--white-1);
+    font-size: 2em;
+    font-weight: 600;
+    padding: 8% 5%;
+}
+
 li input[type=button] {
-    background: var(--red-1);
+    background: transparent;
+    color: black;
     width: 5%;
-    padding: 1%;
+    margin: 0 1%;
+    text-align: center;
+    font-size: 2em;
+    border: none;
+    box-shadow: none;
 }
 
 li input[type=button]:hover {
-    background: var(--red-2);
+    transform: scale(1.2);
+    background-color: transparent;
 }
 
 li input[type=checkbox] {
@@ -145,6 +159,19 @@ li:hover {
     background: var(--white-3);
 }
 
-@media screen and (max-width: ) {
-    
+@media screen and (max-width: 800px) {
+    main {
+        margin: 20vh 0;
+        border-radius: 0;
+    }
+
+    li label {
+        width: 50%;
+    }
+
+    li input[type=button] {
+        width: 30px;
+        height: 30px;
+    }
+
 }
