@@ -305,6 +305,43 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <h2 class="py-1 px-3 my-3 bg-primary text-white">Tooltip, Popover e Toast</h2>     
+            <div class="container-md bg-dark p-5 d-flex flex-column gap-5">
+                <button type="button" class="btn btn-outline-warning w-50 mx-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip, informações complementares">-Tooltip</button>
+                <button type="button" class="btn btn-outline-warning w-50 mx-auto" data-bs-toggle="popover" data-bs-placement="bottom" title="Popover" data-content="O Popover provê mais informações do que o Tooltip">-Popover</button>
+                <button type="button" id="toastbtn" class="btn btn-outline-warning w-50 mx-auto">-Toast</button>
+                <div class="toast mx-auto fade">
+                    <div class="toast-header">
+                        <h3>Toast</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body text-dark">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere consectetur distinctio sequi eos provident ipsa eligendi ut minus quam at voluptates earum libero necessitatibus asperiores veniam, officia eveniet nesciunt! Beatae. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, dolorem? Amet, ullam dolor doloremque culpa similique voluptatum iure repellendus optio necessitatibus dicta minima numquam possimus reiciendis sit eius enim? Expedita!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <script>
+        let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        document.getElementById("toastbtn").onclick = function() {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function(toastEl) {
+                return new bootstrap.Toast(toastEl)
+            })
+        toastList.forEach(toast => toast.show())
+}
+    </script>
 </body>
 </html>
