@@ -47,11 +47,38 @@
                 <a class="nav-link" href="#slideShow-carousel" target="_self">SlideShow</a>
             </li>
         </ul>    
+        <a class="nav-link" href="#sidebar" data-bs-toggle="offcanvas">Menu</a>
     </nav>
+
+    <div class="offcanvas offcanvas-end shadow" id="sidebar">
+        <div class="offcanvas-header bg-primary text-bg-primary">
+            <h2 class="shadow offcanvas-title">Menu</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group flex-column gap-3">
+                <li class="list-group-item list-group-item-action">
+                    <button type="button" class="btn">Informações sobre o Autor</button>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <button type="button" class="btn">Contato</button>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <button type="button" class="btn">Sobre</button>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <button type="button" class="btn">Reiniciar</button>
+                </li>
+                <li class="list-group-item list-group-item-action">
+                    <button type="button" class="btn">Sair</button>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <main class="row justify-content-center container-md bg-light text-white text-capitalize mx-auto py-3">
         <section class="mb-5 col-md-6 bg-dark text-dark p-3" id="conteudo">
-            <h2 class="py-1 px-3 bg-primary text-white">Conteúdo</h2>
+            <h2 class="shadow py-1 px-3 bg-primary text-white">Conteúdo</h2>
             <p class="bg-light p-3 text-justify my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nam laudantium provident molestiae totam! Quos consequatur modi, accusantium quaerat consectetur fugiat reprehenderit quas maxime eius soluta autem, vitae facilis assumenda.</p>
             <p class="bg-light p-3 text-justify my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nam laudantium provident molestiae totam! Quos consequatur modi, accusantium quaerat consectetur fugiat reprehenderit quas maxime eius soluta autem, vitae facilis assumenda.</p>
             <p class="bg-light p-3 text-justify my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nam laudantium provident molestiae totam! Quos consequatur modi, accusantium quaerat consectetur fugiat reprehenderit quas maxime eius soluta autem, vitae facilis assumenda.</p>
@@ -71,11 +98,11 @@
         </aside>
 
         <section class="mb-5 container-md bg-light pt-5" id="barra-de-progresso">
-            <h2 class="py-1 px-3 bg-primary text-white">Barra de Progresso</h2>
+            <h2 class="shadow py-1 px-3 bg-primary text-white">Barra de Progresso</h2>
             <div class="progress">
                 <div style="width: 75%;" class="progress-bar-striped progress-bar-animated bg-warning text-center text-dark">75%</div>
             </div>
-            <h2 class="py-1 px-3 mt-5 mb-1 bg-primary text-white">Tabela</h2>
+            <h2 class="shadow py-1 px-3 mt-5 mb-1 bg-primary text-white">Tabela</h2>
             <table class="table table-responsive-md table-bordered table-hover table-striped table-primary my-5" id="tabela">
                 <caption class="bg-warning px-5 text-bg">Tabela de Exemplo</caption>
                 <thead>
@@ -122,12 +149,12 @@
         </section>
 
         <section class="mb-5" id="imagem">
-            <h2 class="py-1 px-3 bg-primary text-white">Imagem</h2>
+            <h2 class="shadow py-1 px-3 bg-primary text-white">Imagem</h2>
             <img src="https://images.pexels.com/photos/989959/pexels-photo-989959.jpeg" class="rounded d-block mx-auto" style="width: 100%; max-width: 900px;" alt="gota">
         </section>
 
         <section class="mb-5" id="card">
-            <h2 class="py-1 px-3 mt-3 bg-primary text-white">Card</h2>
+            <h2 class="shadow py-1 px-3 mt-3 bg-primary text-white">Card</h2>
             <div class="card container-sm text-white">
                 <div class="card-header bg-dark">
                     <h3>Card Header</h3>
@@ -145,7 +172,7 @@
         </section>
 
         <section class="mb-5" id="acordeon-toggle">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Acordeon toggle</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Acordeon toggle</h2>
             <div class="card my-2">
                 <button class="btn bg-warning m-2" data-bs-toggle="collapse" data-bs-target="#text-1">Texto 1</button>
                 <div class="card-body collapse fade" id="text-1">
@@ -163,7 +190,7 @@
         </section>
 
         <section class="mb-5" id="nav-tabs-and-nav-pills">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Nav tabs e nav pills</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Nav tabs e nav pills</h2>
             <ul class="nav nav-tabs nav-justified my-3 bg-dark text-bg-color">
                 <li class="nav-item">
                     <a href="#1" class="nav-link" data-bs-toggle="tab">Um</a>
@@ -210,7 +237,7 @@
         </section>
 
         <section class="mb-5" id="icone-de-carregamento">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Icone de Carregamento</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Icone de Carregamento</h2>
             <ul class="btn-group-md my-3 list-unstyled">
                 <li class="bg-warning p-2 d-flex gap-3">
                     <p>Carregando</p><span class="spinner-border"></span>
@@ -222,7 +249,7 @@
         </section>
 
         <section class="mb-5 p-2" id="dropdown">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">DropDown</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">DropDown</h2>
             <button class="btn dropdown-toggle bg-primary text-white" data-bs-toggle="dropdown">Escolher um item:</button>
             <ul class="dropdown-menu">
                 <li class="dropdown-item">Item número 1</li>
@@ -234,7 +261,7 @@
         </section>
 
         <section class="mb-5" id="slideShow-carousel">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Carousel Slide-Show</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Carousel Slide-Show</h2>
             <div class="carousel slide" id="slideshow" data-bs-ride="carousel">
                 <div class="carousel-indicators bg-dark">
                     <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active bg-light"></button>
@@ -287,7 +314,7 @@
         </section>
 
         <section class="mb-5" id="modal">
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Caixa Modal</h2>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Caixa Modal</h2>
             <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#modal-content-box">Mostrar Modal</button>
 
             <div class="modal" id="modal-content-box">
@@ -307,7 +334,7 @@
         </section>
 
         <section>
-            <h2 class="py-1 px-3 my-3 bg-primary text-white">Tooltip, Popover e Toast</h2>     
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Tooltip, Popover e Toast</h2>     
             <div class="container-md bg-dark p-5 d-flex flex-column gap-5">
                 <button type="button" class="btn btn-outline-warning w-50 mx-auto" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip, informações complementares">-Tooltip</button>
                 <button type="button" class="btn btn-outline-warning w-50 mx-auto" data-bs-toggle="popover" data-bs-placement="bottom" title="Popover" data-content="O Popover provê mais informações do que o Tooltip">-Popover</button>
@@ -322,6 +349,34 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Formulários</h2>     
+            <form class="bg-light text-bg-light py-1">
+                <div class="input-group p-2 bg-primary gap-3">
+                    <input type="text" class="input-control w-75" name="nome" id="nome" placeholder="Escreva o seu nome">
+                    <label for="nome" class="input-label">Nome Completo</label>
+                </div>
+
+                <!-- <div class=" form-floating"> -->
+                    <!-- <input type="text" id="floating-label" placeholder="data"> -->
+                    <!-- <label for="floating-label">Nascimento</label> -->
+                <!-- </div> -->
+
+                <div class="input-group p-2">
+                    <div class="form-check d-flex flex-column gap-3">
+                        <label class="form-check-label" for="aceitar">
+                            <input type="radio" class="form-check-input" name="aceitar" id="aceitar">
+                            <p>Aceitar os termos</p>
+                        </label>
+                        <label class="form-check-label" for="nao-aceitar">
+                            <input type="radio" class="form-check-input" name="aceitar" id="nao-aceitar">
+                            <p>Recusar os termos</p>
+                        </label>
+                    </div>
+                </div>
+            </form>
         </section>
     </main>
     <script>
