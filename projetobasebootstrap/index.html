@@ -16,11 +16,12 @@
     </header>
 
     <nav class="navbar navbar-expand-lg sticky-top bg-warning">
-        <a class="nav-link p-1" href="#" target="_self">Inicio</a>        
+        <a class="nav-link px-3" href="#sidebar" data-bs-toggle="offcanvas">Menu</a>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#ul-navbar"><span class="navbar-toggler-icon"></span></button>
+
         <ul class="navbar-nav collapse navbar-collapse justify-content-center gap-2" id="ul-navbar">
             <li class="nav-item">
-                <a class="nav-link" href="#conteudo" target="_self">Conteúdo</a>
+                <a class="nav-link" href="#" target="_self">Inicio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#barra-de-progresso" target="_self">Barra de Progresso</a>
@@ -47,12 +48,11 @@
                 <a class="nav-link" href="#slideShow-carousel" target="_self">SlideShow</a>
             </li>
         </ul>    
-        <a class="nav-link" href="#sidebar" data-bs-toggle="offcanvas">Menu</a>
     </nav>
 
-    <div class="offcanvas offcanvas-end shadow" id="sidebar">
+    <div class="offcanvas offcanvas-start shadow" id="sidebar">
         <div class="offcanvas-header bg-primary text-bg-primary">
-            <h2 class="shadow offcanvas-title">Menu</h2>
+            <h2 class="offcanvas-title">Menu</h2>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
@@ -354,27 +354,37 @@
         <section>
             <h2 class="shadow py-1 px-3 my-3 bg-primary text-white">Formulários</h2>     
             <form class="bg-light text-bg-light py-1">
-                <div class="input-group p-2 bg-primary gap-3">
+                <div class="input-group p-2 bg-info text-bg-info">
+                    <label for="nome" class="input-label w-25">Nome Completo:</label>
                     <input type="text" class="input-control w-75" name="nome" id="nome" placeholder="Escreva o seu nome">
-                    <label for="nome" class="input-label">Nome Completo</label>
                 </div>
 
-                <!-- <div class=" form-floating"> -->
-                    <!-- <input type="text" id="floating-label" placeholder="data"> -->
-                    <!-- <label for="floating-label">Nascimento</label> -->
-                <!-- </div> -->
+                <div class="input-group p-2 bg-info text-bg-info">
+                    <label for="senha" class="input-label w-25">Senha:</label>
+                    <input type="password" class="input-control w-75" name="senha" id="senha" placeholder="Escreva sua senha">
+                </div>
 
-                <div class="input-group p-2">
-                    <div class="form-check d-flex flex-column gap-3">
-                        <label class="form-check-label" for="aceitar">
-                            <input type="radio" class="form-check-input" name="aceitar" id="aceitar">
-                            <p>Aceitar os termos</p>
+                <div class="input-group p-2 bg-info text-bg-info">
+                    <label for="nascimento" class="w-25">Nascimento:</label>
+                    <input type="date" class="w-75" id="nascimento">
+                </div>
+
+                <div class="input-group">
+                    <div class="form-check w-100 px-5 bg-info text-bg-info d-flex flex-column gap-1">
+                        <label class="form-check-label" for="masculino">
+                            <input type="radio" class="form-check-input" name="sexo" id="masculino">
+                            <p>Masculino</p>
                         </label>
-                        <label class="form-check-label" for="nao-aceitar">
-                            <input type="radio" class="form-check-input" name="aceitar" id="nao-aceitar">
-                            <p>Recusar os termos</p>
+                        <label class="form-check-label" for="feminino">
+                            <input type="radio" class="form-check-input" name="sexo" id="feminino">
+                            <p>Feminino</p>
                         </label>
                     </div>
+                </div>
+
+                <div class="input-group w-100 justify-content-between">
+                    <button type="submit" class="btn bg-success">Enviar</button>
+                    <button type="submit" class="btn bg-danger">Cancelar</button>
                 </div>
             </form>
         </section>
