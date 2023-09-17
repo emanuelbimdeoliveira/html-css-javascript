@@ -52,18 +52,18 @@ section.start-screen {
 }
 
 button#start-button {
-    padding: 1% 5%;
-    font-size: 2em;
     background: var(--color-contrast);
-    border: var(--border);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: 5em;
     font-weight: 700;
-    text-shadow: 1px 1px 0px white; 
+    border: var(--border);
+    border-width: 3px 0 3px 0;
 }
 
 button#start-button:hover {
-    background: #fa0;
+    transform: scaleY(1.05);
 }
 
 section.display-of-data {

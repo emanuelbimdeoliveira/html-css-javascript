@@ -101,22 +101,22 @@ const snakeMovement = () => {
 }
 
 const changeDirection = (event) => {
-    if (event.key == "j" || event.target.id == "0") {
+    if (event.key == "ArrowLeft" || event.target.id == "0") {
         if(direction !== "toRight") {
             direction = "toLeft";
         }
     } 
-    if (event.key == "l" || event.target.id == "1") {
+    if (event.key == "ArrowRight" || event.target.id == "1") {
         if(direction !== "toLeft") {
             direction = "toRight";
         }
     } 
-    if (event.key == "i" || event.target.id == "2") {
+    if (event.key == "ArrowUp" || event.target.id == "2") {
         if(direction !== "toBottom") {
             direction = "toTop";
         }
     }
-    if (event.key == "k" || event.target.id == "3") {
+    if (event.key == "ArrowDown" || event.target.id == "3") {
         if(direction !== "toTop") {
             direction = "toBottom";
         }
@@ -229,7 +229,7 @@ const reloadPage = () => location.reload();
         
 
 // eventos e chamados de funções
-document.querySelector("body").addEventListener("keypress", changeDirection);
+document.querySelector("body").addEventListener("keydown", changeDirection);
 
 const buttons = document.querySelectorAll("i");
 buttons.forEach((element, index) => {
@@ -237,11 +237,13 @@ buttons.forEach((element, index) => {
     element.addEventListener("click", changeDirection);
 });
 
+
+// funções iniciais
 const startScreen = () => {
     const startScreen = document.createElement('section');
     startScreen.innerHTML = `
         <section class="start-screen">
-            <button id="start-button">Iniciar</button>
+            <button id="start-button" class="material-symbols-outlined" style="text-shadow: none">play_circle</button>
         </section>
     `;
     main.appendChild(startScreen);
@@ -251,12 +253,13 @@ const startScreen = () => {
 const startFunction = () => {
     const screenToRemove = document.querySelector("section.start-screen");
     screenToRemove.style.display = "none";
-    interval = setInterval(snakeMovement, 300);
+    interval = setInterval(snakeMovement, 200);
     snakeMovement();
     addPiece();
     changePositions();
     addFood();    
 }
+
 
 startScreen();
 
