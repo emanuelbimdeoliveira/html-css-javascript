@@ -3,12 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'REM', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 :root {
     --background-1: #eee;
     --background-2: #ccc;
-    --background-3: #aaa;
+    --background-3: #30f;
+    --background-4: #aaa;
     --border: solid 2px;
     --border-radius: 10px;
     --box-shadow: 5px 5px 8px #0005;
@@ -16,8 +18,9 @@
     --padding: 2% 5%;
 }
 
+
 body {
-    background: var(--background-3);
+    background: var(--background-4);
     padding: 1%;
 }
 
@@ -28,6 +31,7 @@ header {
     padding: 2.5%;
     text-align: center;
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
 }
 
 
@@ -41,6 +45,7 @@ nav {
     overflow: hidden;
     opacity: 1;
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
     transition: all 1s;
 }
 
@@ -74,6 +79,7 @@ main {
     width: 80%;
     max-width: 1200px;
     margin: auto;
+    border-radius: var(--border-radius);
 }
 
 h2 {
@@ -87,11 +93,24 @@ section {
     padding: var(--padding);
 }
 
+main > section:first-of-type {
+    border-radius: 10px 10px 0 0;
+}
+
+main > section:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
 
 /* interruptor */
 .first-section {
     display: flex;
     justify-content: space-between;
+}
+
+.first-section > section {
+    background: var(--background-4);
+    border-radius: var(--border-radius);
+    box-shadow: none;
 }
 
 .toggle-switch {
@@ -166,6 +185,8 @@ fieldset {
     margin-bottom: 20px;
     border: var(--border);
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
     display: flex;
 }
 
@@ -192,6 +213,10 @@ table {
     width: 100%;
     border-collapse: collapse;
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    outline: solid 1px black;
+    overflow: hidden;
+    font-weight: 600;
 }
 
 thead {
@@ -203,13 +228,16 @@ tr {
 }
 
 tr:nth-child(2n) {
-    background: var(--background-2);
+    background: var(--background-4);
 }
 
 th, td {
     color: black;
     border: solid 2px black;
     padding: 1%;
+    color: white;
+    font-size: 1.4em;
+    text-shadow: 2px 2px black;
 }
 
 
@@ -221,8 +249,9 @@ th, td {
     height: 500px;
     margin-bottom: 20px;
     box-shadow: var(--box-shadow);
-    position: relative;
+    border-radius: var(--border-radius);
     overflow: hidden;
+    position: relative;
 }
 
 .magnifying {
@@ -237,7 +266,7 @@ th, td {
 }
 
 .zoom {
-    background: var(--background-3) url(imagens/valey.jpg) no-repeat;
+    background: var(--background-4) url(imagens/valey.jpg) no-repeat;
     background-size: 2000px 2000px;
     background-position: -50% -50%;
     width: 200px;
@@ -257,6 +286,8 @@ th, td {
     height: 90%;
     position: relative;
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .container-of-images div {
@@ -274,7 +305,7 @@ th, td {
 }
 
 span#locator {
-    background: var(--background-3);
+    background: var(--background-4);
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -313,6 +344,8 @@ span#locator {
     left: 0;
     backface-visibility: hidden;
     box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .images div:first-of-type {
