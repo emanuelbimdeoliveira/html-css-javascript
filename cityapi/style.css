@@ -1,0 +1,44 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white-2: #ddf;
+}
+
+section {
+    background: var(--white-2);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    overflow: scroll;
+}
+
+li a:hover {
+    background: #ff0 !important;
+}
+
+#start-screen {
+    top: 0;
+}
+
+#continent:target, #country:target, #state:target {
+    top: 0;
+}
+
+button {
+    width: 10%;
+    border: black 2px solid !important;
+}
+
+div#image {
+    height: 25vw;
+    background: white url(imagens/pexels-nastyasensei-335393.jpg) scroll no-repeat center center;
+    background-size: cover;
+    width: 100%;
+}
