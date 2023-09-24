@@ -26,7 +26,6 @@ li a:hover {
 
 #start-screen {
     top: 0;
-    padding: 10% 0;
 }
 
 #continent:target, #country:target, #state:target {
