@@ -79,8 +79,14 @@ td:hover {
 }
 
 div#image {
-    height: 25vw;
+    height: 50vh;
     background: white url(imagens/pexels-nastyasensei-335393.jpg) scroll no-repeat center center;
     background-size: cover;
     width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        background: transparent;
+    }
 }

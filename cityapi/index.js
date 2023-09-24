@@ -15,8 +15,8 @@ for (let i = 0; i < 3; i++) {
 	section.classList.add("section-of-content");
 	section.innerHTML = `
 		<form class="form-control container-lg bg-light mt-5">
-			<button type="button" class="btn btn-warning border-dark mt-3 material-symbols-outlined" onclick="history.back()">arrow_back</button>
-			<h2 class="bg-info text-bg-info text-center mt-3 rounded-2">${data[i].h2Text}</h2>
+			<button type="button" class="btn btn-warning border-dark mt-3 shadow material-symbols-outlined" onclick="history.back()">arrow_back</button>
+			<h2 class="bg-info text-bg-info text-center mt-3 shadow rounded-2">${data[i].h2Text}</h2>
 			<fieldset class="input-group container-lg d-flex justify-content-center py-5">
 				<input type="text" placeholder="${data[i].inputPlaceholder}" value="${data[i].inputValue}" class="p-2 w-75 input-of-text">
 				<select name="continent-name" id="continent-name" class="select-of-continents w-75">
