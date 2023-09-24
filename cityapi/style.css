@@ -17,6 +17,7 @@ section {
     top: -100%;
     left: 0;
     overflow: scroll;
+    transition: all .5s;
 }
 
 li a:hover {
@@ -25,15 +26,57 @@ li a:hover {
 
 #start-screen {
     top: 0;
+    padding: 10% 0;
 }
 
 #continent:target, #country:target, #state:target {
     top: 0;
 }
 
-button {
-    width: 10%;
+#continent .input-of-text {
+    display: none;
+}
+
+.select-of-continents {
+    display: none;
+}
+
+#continent .select-of-continents {
+    display: block;
+}
+
+button[onclick*=back] {
+    background: transparent;
+    position: absolute;
+    border-radius: 0;
+    border: none;
+}
+
+button[onclick*=back]:hover {
+    transform: scale(1.1);
+}
+
+button[onclick*=catch] {
     border: black 2px solid !important;
+    width: 10%;
+}
+
+button[onclick*=catch]:hover {
+    background: #ff0;
+}
+
+td:hover {
+    background: #0dcaf0;
+}
+
+.find-place {
+    float: right;
+    display: block;
+}
+
+.find-place:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
 }
 
 div#image {
