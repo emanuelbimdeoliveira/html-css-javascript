@@ -3,12 +3,14 @@
 const body = document.querySelector("body");
 let limit = 50;
 
+// array que armazena os dados que serão usados na interface
 const data = [
 	{id: "continent", h2Text: "Selecione um continente", inputPlaceholder: "America do Sul", thText: "Nomes dos Países"},
 	{id: "country", h2Text: "Digite a sigla de um país", inputPlaceholder: "Exemplo: Br, Us, Fr, It", inputValue: "br", thText: "Nomes dos estados ou províncias:"},
 	{id: "state", h2Text: "Digite a sigla do estado:", inputPlaceholder: "Exemplo: SP, PR, RJ", inputValue: "sp", thText: "Nomes das cidades:"}
 ];
 
+// contrução de parte da interface usando JavaScript
 for (let i = 0; i < 3; i++) {
 	const section = document.createElement("section");
 	section.id = data[i].id;
@@ -49,6 +51,7 @@ for (let i = 0; i < 3; i++) {
 	body.appendChild(section);
 }
 
+// especificações da API
 const options = {
 	method: 'GET',
 	headers: {
@@ -60,7 +63,7 @@ const options = {
 
 // funções
 const increaseLimit = (index) => {
-	limit += 20;
+	limit += 50;
 	catchResponse(index);
 }
 
@@ -96,12 +99,14 @@ const catchResponse = async (index) => {
 	if (response.status == 200) {
 		let result = await response.json();
 
+		// armazenando e ordenando os items no array
 		let resultArray = [];
 		result.map((element) => {
 			resultArray.push(element.value);
 		})
 		resultArray.sort()
 
+		// construção do resultado na tela
 		for (let i = 0; i < resultArray.length; i += 3) {
 			const tableRow = document.createElement("tr");		
 			tableRow.innerHTML = `
@@ -122,6 +127,7 @@ const catchResponse = async (index) => {
 			tableBody[index].appendChild(tableRow);
 		}	
 		
+		// evitando o resultado Undefined
 		const lastRow = document.querySelectorAll("tr:last-of-type p");
 		lastRow.forEach((element) => {
 			if (element.textContent == "undefined") {
@@ -129,6 +135,7 @@ const catchResponse = async (index) => {
 			}
 		})
 
+		// para aumentar o limite de busca da API
 		const tableRowIncreaseContent = document.createElement("tr");		
 		tableRowIncreaseContent.innerHTML = `
 			<td class="text-center py-2" colspan="3">
