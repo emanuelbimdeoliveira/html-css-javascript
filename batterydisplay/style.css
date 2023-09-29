@@ -6,34 +6,37 @@
 }
 
 :root {
-    --black-1: #112;
-    --blue-1: #008;
-    --blue-2: #00f;
-    --blue-3: #08f;
+    --background-body: #ddf;
+    --background-main: linear-gradient(45deg, #00a, #00f, #35f);
     --red-gradient: linear-gradient(45deg, #a00, #f00, #f53);
-    --yellow-gradient: linear-gradient(45deg, #ff0, #a80, #880);
+    --yellow-gradient: linear-gradient(45deg, hsl(60, 100%, 80%), hsl(60, 100%, 50%),hsl(60, 100%, 25%));
     --green-gradient: linear-gradient(45deg, #0a0, #0f0, #3f5);
     --padding: 3% 5%;
     --border-radius: 10px;
+    --border: solid 3px black;
+    --box-shadow: 5px 5px 10px #0008;
+    --text-shadow: 2px 2px 0 black;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
-    background: var(--black-1);
+    height: 95vh;
+    background: var(--background-body);
     color: white;
+    text-shadow: var(--text-shadow);
     font-family: 'Nunito Sans', sans-serif;
     font-family: 'REM', sans-serif;
 }
 
 main {
-    width: 80%;
-    max-width: 900px;
-    height: 400px;
-    background: var(--blue-2);
-    margin: 5% auto;
+    width: 60%;
+    max-width: 700px;
+    height: 65vh;
+    background: var(--background-main);
+    margin: 10vh auto;
     padding: var(--padding);
     border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     display: grid;
     grid-template-areas: 
         "p d-p"
@@ -56,31 +59,72 @@ p {
 }
 
 #battery-place {
-    width: 20%;
+    width: 15%;
     min-width: 80px;
     height: 90%;
     margin: auto;
-    border: solid 3px black;
+    box-shadow: inset 5px -5px 10px #fff5, inset -5px 5px 10px #0005, -5px -5px 5px #0005;
+    border: ridge 1px black;
     border-radius: 50px;
     overflow: hidden;
     transform: rotateZ(180deg);
 }
 
 #battery-place p {
+    width: 100%;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: rotateZ(180deg) translate(50%);  
+    transform: rotateZ(180deg) translateY(50%);  
+    color: black;
+    text-align: center;
+    text-shadow: none;
 }
 
 #battery-fluid {
     width: 100%;
-    height: 23%;
+    height: 25%;
     background: var(--green-gradient);
+    z-index: -1;
+    border-bottom: ridge 1px black;
 }
 
 #status {
     grid-area: s;
 }
 
+label {
+    width: 44px;
+    height: 24px;
+    position: relative;
+    display: block;
+    border: solid 2px black;
+    border-radius: 50px;
+}
 
+label input {
+    display: none;
+}
+
+label input:checked + div {
+    background: #ddf;
+    transform: translateX(100%);
+    border: solid 2px black;
+}
+
+label div {
+    background: var(--background-body);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid 2px black;
+    transition: all .3s linear;
+}
+
+
+@media screen and (max-width: 560px) {
+    main {
+        width: 90%;
+        height: 90%;
+        margin: 5vh auto;
+    }
+}
