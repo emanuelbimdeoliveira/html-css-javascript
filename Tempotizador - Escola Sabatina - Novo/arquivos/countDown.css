@@ -1,0 +1,466 @@
+@font-face {
+  font-family: "advent";
+  src: url(fonte/advent/advent-Bd1.otf);
+}
+
+@font-face {
+  font-family: bold;
+  src: url(../arquivos/fonte/the_bold_font/THEBOLDFONT\ 2022.otf);
+}
+
+@font-face {
+  font-family: mono;
+  src: url(fonte/monospace_typewrite/MonospaceTypewriter.ttf);
+}
+
+@keyframes backgroundAnimation {
+  to {
+    background-position: right;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor);
+  box-sizing: border-box;
+  font-family: "fonte", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+/* temas padrão para modificação das cores */
+.temaPadraoBody {
+  /* background: radial-gradient(circle at 50% 100%, #077eff, #0023f1, #0000a5, #00007a); */
+
+  /* background: linear-gradient(125deg, #07aeff, #0f0fff); */
+  background-image: url(https://cdn.pixabay.com/photo/2016/10/22/17/02/blue-1761175_1280.jpg) !important;
+
+  /* background-size: 200%; */
+
+  color: white;
+  /* animation: backgroundAnimation 10s linear infinite alternate; */
+}
+
+.temaClaroBody {
+  background: radial-gradient(circle at 50% 100%, #ffe, #ddc, #aa9);
+  color: black;
+  text-shadow: 2px 2px 0px white;
+}
+
+.temaEscuroBody {
+  /* background: radial-gradient(circle at 50% 100%, #222, #111, #000); */
+  background: black;
+  color: white;
+  text-shadow: 2px 2px 0px black;
+}
+
+.temaPadraoAside {
+  background: linear-gradient(45deg, #00a0df, #00f4df, #00a0df);
+}
+
+.temaPadraoAside p:hover,
+.temaPadraoAside a:hover {
+  background: linear-gradient(45deg, #05f, #08f, #03f);
+}
+
+.temaClaroAside {
+  background: linear-gradient(45deg, #86a9a4, #acc, #8aa);
+}
+
+.temaEscuroAside {
+  background: linear-gradient(45deg, #444, #666, #555);
+}
+
+.temaEscuroAside p,
+.temaEscuroAside a {
+  color: white;
+  text-shadow: 2px 2px 0px black;
+}
+
+.temaPadraoParagrafo {
+  background: linear-gradient(45deg, #f8f005, #f1c001, #fba008);
+
+  color: black;
+  text-shadow: 2px 2px 0 white;
+
+  box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33,
+    5px 5px 10px #002;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+a.temaPadraoParagrafo:hover,
+input.temaPadraoParagrafo:hover {
+  background: #f40;
+}
+
+.temaClaroParagrafo {
+  background: linear-gradient(45deg, #0005, #0002, #0007);
+  text-shadow: none;
+  /* text-shadow: 0 2px 0px white, 0 3px 0px white; */
+  color: black;
+  box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33,
+    5px 5px 10px #002;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.temaEscuroParagrafo {
+  background: linear-gradient(45deg, #333, #555, #444);
+  color: white;
+  box-shadow: inset -50px -50px 50px #0000006d, inset 100px 100px 50px #ffffff33;
+  text-shadow: 2px 2px 0px black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagemTemaEscuro {
+  filter: none;
+}
+
+/* padrao para display de textos */
+.flexTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body {
+  height: 100vh;
+  padding: 5% 0;
+  text-align: center;
+  font-family: sans-serif, "Arial Narrow", Arial, sans-serif;
+  animation: none !important;
+  user-select: none;
+  cursor: auto;
+  text-shadow: 2px 2px 0px black, 3px 3px 0px black;
+}
+
+/* primeira tela mostrada */
+#telaInicial > a {
+  text-decoration: none;
+  position: absolute;
+  width: 60%;
+  height: 10%;
+  top: 45%;
+  right: 20%;
+  margin: auto;
+  box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33,
+    5px 5px 10px #000a;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#telaInicial > a:hover {
+  transform: translate(0, -5%);
+}
+
+/* seguna tela mostrada(orientação) */
+#telaParaOrientacao {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: bolder;
+  margin: auto;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+
+#telaParaOrientacao:target {
+  top: 0;
+}
+
+#main {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  margin: 15vh auto;
+  border: solid 3px black;
+}
+
+.voltarPagina {
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 2%;
+  left: 0;
+  border: none;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition-duration: 1s;
+}
+
+.voltarPagina:hover {
+  transform: scale(0.9);
+}
+
+legend p {
+  width: 100%;
+  height: 15vh;
+  border: none;
+}
+
+form input {
+  width: 100%;
+  height: 10vh;
+  margin: auto;
+  padding: 1%;
+  outline: none;
+  border: none;
+  border-top: solid 3px black;
+  border-bottom: solid 3px black;
+  font-weight: bolder;
+  font-size: 1.4em;
+  box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33;
+  text-shadow: 0 2px 0px black, 0 3px 0px black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+form input:focus {
+  text-shadow: none;
+}
+
+form input:hover {
+  background: linear-gradient(45deg, #0005, #0002, #0006);
+}
+
+form a {
+  background: linear-gradient(45deg, #805, #d30082, #5b0038);
+  display: block;
+  width: 100%;
+  height: 10vh;
+  margin: auto;
+  padding: 1% 0;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff33;
+}
+
+form a:hover {
+  background: linear-gradient(45deg, #0005, #0002, #0006);
+}
+
+/* terceira tela mostrada(countDown) */
+#telaCountDown {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  opacity: 0;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  border: solid 5px black;
+  display: flex;
+  align-items: center;
+}
+
+#telaCountDown:target {
+  opacity: 1;
+  top: 0;
+}
+
+.tituloCountDown {
+  /* max-width: 900px; */
+  width: 100%;
+  height: 70%;
+
+  /* margin-top: 8vh; */
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* classe voltar pagina aplicada aqui também*/
+
+h1 {
+  margin: 2% auto;
+  width: 80%;
+  height: 30%;
+  font-size: 3.8em;
+}
+
+.mostradorNumeros {
+  /* max-width: 900px; */
+  width: 100%;
+  height: 80%;
+  max-height: 200px;
+  margin: 0 auto;
+}
+
+.display {
+  /* box-shadow: inset -20px -20px 20px #0000003d, inset 20px 20px 20px #ffffff23; */
+  background-color: #fff1;
+  background: linear-gradient(0deg, #f80, #ff0);
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 9% 0;
+
+  /* border-radius: 10px; */
+  border-right: none;
+  border-left: none;
+
+  color: black;
+  font-family: mono, bold, Arial, Helvetica, sans-serif;
+  font-size: 8.5em;
+  text-shadow: 5px 5px 0px white !important;
+  word-spacing: -45px;
+}
+
+img {
+  width: 20%;
+  display: none;
+  margin: 0 auto;
+  border-radius: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1px 20px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer p {
+  color: white !important;
+  width: max-content;
+  margin: 0 1px;
+  padding: 1px;
+  font: 400 2em Calibri, Arial, sans-serif;
+  text-shadow: none;
+}
+
+p {
+  margin: auto;
+  width: 80%;
+  height: 30%;
+  border: solid 3px black;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+/* tela de menu */
+div.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div aside {
+  position: fixed;
+  right: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: -10px -10px 16px 0px #0005;
+  transition: width 0.5s ease-out;
+}
+
+#asideTransicao {
+  width: 30%;
+}
+
+aside p,
+aside a {
+  width: 100%;
+  height: 5%;
+  padding: 1% 0;
+  border: none;
+  border-bottom: solid 3px black;
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  text-shadow: 2px 2px 0px white;
+}
+
+aside > p:hover,
+aside > a:hover {
+  background: linear-gradient(45deg, #222, #444, #333);
+  color: white;
+  text-shadow: 2px 2px 0px black, 3px 3px 0px black;
+}
+
+aside p:active {
+  transform: scale(0.99);
+}
+
+aside #relogioHoraAtual {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: black;
+  text-shadow: 1px 1px 0px white;
+  display: block;
+  font-size: 1.8em;
+  font-family: bold, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-top: 3px solid black;
+  font-weight: bold;
+  padding: 1% 0;
+  height: min-content;
+}
+
+#relogioHoraAtual:hover {
+  background: #fffa;
+}
+
+/* media query */
+@media screen and (min-width: 1250px) {
+  .display {
+    font-size: 10em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .display {
+    font-size: 6.8em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #main {
+    font-size: 0.5em;
+  }
+
+  #main a.voltarPagina {
+    font-size: 5vw;
+  }
+
+  aside {
+    font-size: 2vw;
+  }
+
+  .display {
+    font-size: 4.5em;
+  }
+}
