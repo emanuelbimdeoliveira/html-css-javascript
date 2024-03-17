@@ -1,0 +1,102 @@
+@font-face {
+    font-family: kenyan-coffee;
+    src: url(../fonte/kenyan_coffee/kenyan\ coffee\ rg.otf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-shadow: 2px 2px 0 black;
+}
+
+body {
+    background: radial-gradient(circle at center top, #f9f9ff, #c8c8cf);
+    height: 100vh;
+}
+
+main {
+    background: #088;
+
+    max-width: 800px;
+    margin: 5% auto;
+    padding: 2% 5%;
+
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #0007;
+
+    color: white;
+    font: 500 1.8em kenyan-coffee, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+section.input-initial {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form {
+    margin: 2% auto;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form input {
+    background: #aff;
+
+    border: none;
+    outline: none;
+
+    padding: 9%;
+    box-shadow: 5px 0 10px #0007;
+
+    color: black;
+    font: 400 .6em kenyan-coffee, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px 0 white;
+}
+
+input::placeholder {
+    color: black;
+}
+
+form i {
+    background: #044;
+
+    padding: 6%;
+
+    box-shadow: 5px 5px 10px #0007;
+}
+
+
+section.weather-content {
+    border-top: solid 3px white;
+}
+
+div {
+    margin: 2% auto;
+    padding: 2%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;   
+}
+
+div#weather-details {
+    justify-content: space-evenly;
+}
+
+div#weather-details div {
+    justify-content: center;
+}
+
+p {
+    margin: 0 10px;
+}
