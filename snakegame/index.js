@@ -17,6 +17,9 @@ let highScore = localStorage.getItem("highScore") || 0;
 const scorePlace = document.querySelector("span#score");
 const highScorePlace = document.querySelector("span#high-score");
 
+// velocidade
+let snakeVelocity = 100;
+
 // pausa
 let paused = false;
 
@@ -68,16 +71,16 @@ const snakeMovement = () => {
 
   switch (direction) {
     case "toLeft":
-      xPosition -= fractionWidth;
+      xPosition -= fractionWidth / 2;
       break;
     case "toRight":
-      xPosition += fractionWidth;
+      xPosition += fractionWidth / 2;
       break;
     case "toTop":
-      yPosition -= fractionHeight;
+      yPosition -= fractionHeight / 2;
       break;
     case "toBottom":
-      yPosition += fractionHeight;
+      yPosition += fractionHeight / 2;
   }
 
   snakeHead.style.left = `${xPosition}px`;
@@ -203,16 +206,16 @@ const addPiece = () => {
 
     switch (direction) {
       case "toLeft":
-        xPosition += fractionWidth;
+        xPosition += fractionWidth / 2;
         break;
       case "toRight":
-        xPosition -= fractionWidth;
+        xPosition -= fractionWidth / 2;
         break;
       case "toTop":
-        yPosition += fractionHeight;
+        yPosition += fractionHeight / 2;
         break;
       case "toBottom":
-        yPosition -= fractionHeight;
+        yPosition -= fractionHeight / 2;
     }
 
     newPieceElement.style.left = `${xPosition}px`;
@@ -289,7 +292,7 @@ const startFunction = () => {
 
   const screenToRemove = document.querySelector("section.start-screen");
   screenToRemove.style.display = "none";
-  interval = setInterval(snakeMovement, 200);
+  interval = setInterval(snakeMovement, snakeVelocity);
   snakeMovement();
   addPiece();
   changePositions();
