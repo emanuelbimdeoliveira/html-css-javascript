@@ -20,15 +20,23 @@ const highScorePlace = document.querySelector("span#high-score");
 // pausa
 let paused = false;
 
+// audios
+const movementAudio = new Audio("./audios/movement.wav");
+const startAudio = new Audio("./audios/start.wav");
+const upAudio = new Audio("./audios/up.wav");
+const gameOverAudio = new Audio("./audios/game-over.wav");
+
 // posições possíveis para o alimento
-const possiblePositionsX = [];
-const possiblePositionsY = [];
+let possiblePositionsX = [];
+let possiblePositionsY = [];
 for (let i = fractionWidth; i < totalWidth; i += fractionWidth) {
   possiblePositionsX.push(i);
 }
 for (let i = fractionHeight; i < totalHeight; i += fractionHeight) {
   possiblePositionsY.push(i);
 }
+possiblePositionsX = possiblePositionsX.slice(1, -1);
+possiblePositionsY = possiblePositionsY.slice(1, -1);
 
 // para alternar a posição de cada peça
 let arrayOfElements;
@@ -102,6 +110,7 @@ const snakeMovement = () => {
 };
 
 const changeDirection = (event) => {
+  movementAudio.play();
   if (event.key == "ArrowLeft" || event.target.id == "1") {
     if (direction !== "toRight") {
       direction = "toLeft";
@@ -177,6 +186,8 @@ const addFood = () => {
 
 // função para adicionar uma peça
 const addPiece = () => {
+  upAudio.play();
+
   setTimeout(() => {
     const newPieceElement = document.createElement("span");
     newPieceElement.classList.add("snake-head");
@@ -223,6 +234,8 @@ const testOfHit = () => {
 
 // função game over
 const gameOver = () => {
+  gameOverAudio.play();
+
   const gameOverScreen = document.createElement("section");
   gameOverScreen.classList.add("game-over-screen");
 
@@ -272,6 +285,8 @@ const startScreen = () => {
 };
 
 const startFunction = () => {
+  startAudio.play();
+
   const screenToRemove = document.querySelector("section.start-screen");
   screenToRemove.style.display = "none";
   interval = setInterval(snakeMovement, 200);
