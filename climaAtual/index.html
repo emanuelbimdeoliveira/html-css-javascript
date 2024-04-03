@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Clima</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.css"
+    />
 
     <script src="javaScript/javaScript.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <section class="input-initial">
-            <h1>Clima Atual:</h1>
-            <div>
-                <form id="form">
-                    <input type="text" placeholder="Digite a cidade desejada:" id="input-city"/>
-                    <i class="fa-solid fa-magnifying-glass" id="search-button"></i>    
-                </form>
-            </div>
-        </section>
-        <section class="weather-content">
-            <div class="weather-city">
-                <i class="fa-solid fa-location-dot"></i>
-                <p id="city-name">São Paulo</p>
-                <img id="flag-name" src="https://flagsapi.com/BR/shiny/64.png" alt="Bandeira nacional" />
-            </div>
-            <div id="weather-description">
-                <p id="temperature">32°</p>
-                <p id="weather-now" style="text-transform: capitalize">Ensolarado</p>
-                <img id="weather-icon" src="https://openweathermap.org/img/wn/01d.png" alt="Condições do tempo">
-            </div>
-            <div id="weather-details">
-                <div>
-                    <i class="fa-solid fa-droplet"></i>
-                    <p id="humidity">48%</p>
-                </div>
-                <p>|</p>
-                <div> 
-                    <i class="fa-solid fa-wind"></i>
-                    <p id="wind-speed">15km/h</p>
-                </div>
-            </div>
-        </section>
+      <section class="input-initial">
+        <h1>Clima Atual:</h1>
+        <div>
+          <form id="form" onsubmit="event.preventDefault(); search()">
+            <input
+              type="text"
+              placeholder="Digite a cidade desejada:"
+              id="input-city"
+            />
+            <i class="fa-solid fa-magnifying-glass" id="search-button"></i>
+          </form>
+        </div>
+      </section>
+      <section class="weather-content">
+        <div class="weather-city">
+          <i class="fa-solid fa-location-dot"></i>
+          <p id="city-name">São Paulo</p>
+          <img
+            id="flag-name"
+            src="https://flagsapi.com/BR/shiny/64.png"
+            alt="Bandeira nacional"
+          />
+        </div>
+        <div id="weather-description">
+          <p id="temperature">32°</p>
+          <p id="weather-now" style="text-transform: capitalize">Ensolarado</p>
+          <img
+            id="weather-icon"
+            src="https://openweathermap.org/img/wn/01d.png"
+            alt="Condições do tempo"
+          />
+        </div>
+        <div id="weather-details">
+          <div>
+            <i class="fa-solid fa-droplet"></i>
+            <p id="humidity">48%</p>
+          </div>
+          <p>|</p>
+          <div>
+            <i class="fa-solid fa-wind"></i>
+            <p id="wind-speed">15km/h</p>
+          </div>
+          <p>|</p>
+          <div>
+            <i class="fa-solid fa-temperature-arrow-down"></i>
+            <p id="feels-like">5°</p>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>

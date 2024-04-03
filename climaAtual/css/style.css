@@ -1,102 +1,114 @@
 @font-face {
-    font-family: kenyan-coffee;
-    src: url(../fonte/kenyan_coffee/kenyan\ coffee\ rg.otf);
+  font-family: kenyan-coffee;
+  src: url(../fonte/kenyan_coffee/kenyan\ coffee\ rg.otf);
 }
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
-    text-shadow: 2px 2px 0 black;
+  text-shadow: 2px 2px 0 black;
 }
 
 body {
-    background: radial-gradient(circle at center top, #f9f9ff, #c8c8cf);
-    height: 100vh;
+  background: radial-gradient(circle at center top, #f9f9ff, #c8c8cf);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    background: #088;
+  background: linear-gradient(0deg, #085a55, #08aaa5);
 
-    max-width: 800px;
-    margin: 5% auto;
-    padding: 2% 5%;
+  min-width: 50%;
+  max-width: 800px;
+  padding: 2% 5%;
 
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px #0007;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #0007;
 
-    color: white;
-    font: 500 1.8em kenyan-coffee, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font: 500 1.8em kenyan-coffee, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 section.input-initial {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 form {
-    margin: 2% auto;
+  margin: 2% auto;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 form input {
-    background: #aff;
+  background: #aff;
 
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 
-    padding: 9%;
-    box-shadow: 5px 0 10px #0007;
+  padding: 9%;
+  box-shadow: 5px 0 10px #0007;
 
-    color: black;
-    font: 400 .6em kenyan-coffee, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-shadow: 1px 1px 0 white;
+  color: black;
+  font: 400 0.6em kenyan-coffee, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 0 white;
 }
 
 input::placeholder {
-    color: black;
+  color: black;
 }
 
 form i {
-    background: #044;
+  background: #044;
 
-    padding: 6%;
+  padding: 6%;
 
-    box-shadow: 5px 5px 10px #0007;
+  box-shadow: 5px 5px 10px #0007;
 }
 
-
 section.weather-content {
-    border-top: solid 3px white;
+  border-top: solid 3px white;
 }
 
 div {
-    margin: 2% auto;
-    padding: 2%;
+  margin: 2% auto;
+  padding: 2%;
 
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;   
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 div#weather-details {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 div#weather-details div {
-    justify-content: center;
+  justify-content: center;
 }
 
 p {
-    margin: 0 10px;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    width: 100%;
+    height: 100%;
+    padding: 1em 0.1em;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
