@@ -5,22 +5,39 @@ let limit = 50;
 
 // array que armazena os dados que serão usados na interface
 const data = [
-	{id: "continent", h2Text: "Selecione um continente", inputPlaceholder: "America do Sul", thText: "Nomes dos Países"},
-	{id: "country", h2Text: "Digite a sigla de um país", inputPlaceholder: "Exemplo: Br, Us, Fr, It", inputValue: "br", thText: "Nomes dos estados ou províncias:"},
-	{id: "state", h2Text: "Digite a sigla do estado:", inputPlaceholder: "Exemplo: SP, PR, RJ", inputValue: "sp", thText: "Nomes das cidades:"}
+  {
+    id: "continent",
+    h2Text: "Selecione um continente",
+    inputPlaceholder: "America do Sul",
+    thText: "Nomes dos Países",
+  },
+  {
+    id: "country",
+    h2Text: "Digite a sigla de um país",
+    inputPlaceholder: "Exemplo: Br, Us, Fr, It",
+    inputValue: "br",
+    thText: "Nomes dos estados ou províncias:",
+  },
+  {
+    id: "state",
+    h2Text: "Digite a sigla do estado:",
+    inputPlaceholder: "Exemplo: SP, PR, RJ",
+    inputValue: "sp",
+    thText: "Nomes das cidades:",
+  },
 ];
 
 // contrução de parte da interface usando JavaScript
 for (let i = 0; i < 3; i++) {
-	const section = document.createElement("section");
-	section.id = data[i].id;
-	section.classList.add("section-of-content");
-	section.innerHTML = `
+  const section = document.createElement("section");
+  section.id = data[i].id;
+  section.classList.add("section-of-content");
+  section.innerHTML = `
 		<form class="form-control container-lg bg-light mt-5">
-			<button type="button" class="btn btn-warning border-dark mt-3 shadow material-symbols-outlined" onclick="history.back()">arrow_back</button>
-			<h2 class="bg-info text-bg-info text-center mt-3 shadow rounded-2">${data[i].h2Text}</h2>
+			<button type="button" class="btn border-dark mt-3 shadow material-symbols-outlined" onclick="history.back()">arrow_back</button>
+			<h2 class="bg-blue text-bg-info text-center py-3 mt-3 shadow rounded-2">${data[i].h2Text}</h2>
 			<fieldset class="input-group container-lg d-flex justify-content-center py-5">
-				<input type="text" placeholder="${data[i].inputPlaceholder}" value="${data[i].inputValue}" class="p-2 w-75 input-of-text">
+				<input type="text" placeholder="${data[i].inputPlaceholder}" required class="p-2 w-75 input-of-text">
 				<select name="continent-name" id="continent-name" class="select-of-continents w-75">
 					<option value="eu">Europa</option>
 					<option value="na">América do Norte</option>
@@ -29,12 +46,12 @@ for (let i = 0; i < 3; i++) {
 					<option value="af">Africa</option>
 					<option value="oc">Oceania</option>
 				</select>		
-				<button type="button" id="${i}" onclick="catchResponse(${i})" class="btn btn-info p-2 material-symbols-outlined">search</button> 
+				<button type="button" id="${i}" onclick="catchResponse(${i})" class="btn bg-blue p-2 material-symbols-outlined">search</button> 
 			</fieldset>
 		</form>
 	
 		<div>
-			<table id="${i}" class="table table-striped table-bordered table-hover container-lg bg-light rounded mx-auto">
+			<table id="${i}" class="table table-striped table-bordered container-lg bg-light rounded mx-auto">
 				<thead>
 					<tr>
 						<th colspan="3" class="text-center">${data[i].thText}</th>
@@ -44,128 +61,134 @@ for (let i = 0; i < 3; i++) {
 	
 				</tbody>
 			</table>    
-			<div id="image" class="container-lg"></div>
 		</div>
 
 	`;
-	body.appendChild(section);
+  body.appendChild(section);
 }
 
 // especificações da API
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '0d01508de4msh693999af6a06f17p130f88jsn1e52fddd5772',
-		'X-RapidAPI-Host': 'referential.p.rapidapi.com'
-	}
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "0d01508de4msh693999af6a06f17p130f88jsn1e52fddd5772",
+    "X-RapidAPI-Host": "referential.p.rapidapi.com",
+  },
 };
-
 
 // funções
 const increaseLimit = (index) => {
-	limit += 50;
-	catchResponse(index);
-}
+  limit += 50;
+  catchResponse(index);
+};
 
 const catchResponse = async (index) => {
-	const inputText = document.querySelectorAll("input[type=text]");
-	const inputSelect = document.querySelector("select");
-	const tableBody = document.querySelectorAll("tbody");
-	const section = document.querySelectorAll("section.section-of-content");
+  const inputText = document.querySelectorAll("input[type=text]");
+  const inputSelect = document.querySelector("select");
+  const tableBody = document.querySelectorAll("tbody");
+  const section = document.querySelectorAll("section.section-of-content");
 
-	let response;
-	let url;
+  if (inputText[index].value === "" && section[index].id !== "continent") {
+    alert("Preencha o campo!");
+    return;
+  }
 
-	tableBody[index].innerHTML = "";
+  let response;
+  let url;
 
-	switch (section[index].id) {
-		case "continent": 
-			url = `https://referential.p.rapidapi.com/v1/country?fields=currency%2Ccurrency_num_code%2Ccurrency_code%2Ccontinent_code%2Ccurrency%2Ciso_a3%2Cdial_code&continent_code=${inputSelect.value}&lang=pt&limit=${limit}`;
-			break;
-		case "country": 
-			url = `https://referential.p.rapidapi.com/v1/state?fields=iso_a2&iso_a2=${inputText[index].value}&lang=pt&limit=${limit}`;
-			break;
-		case "state": 
-			url = `https://referential.p.rapidapi.com/v1/city?fields=iso_a2%2Cstate_code%2Cstate_hasc%2Ctimezone%2Ctimezone_offset&iso_a2=br&lang=pt&state_code=${inputText[index].value}&limit=${limit}`;
-			break;
-	}
+  tableBody[index].innerHTML = "";
 
-	try {
-		response = await fetch(url, options);
-	} catch (error) {
-		alert("Tente novamente!");
-	}
+  switch (section[index].id) {
+    case "continent":
+      url = `https://referential.p.rapidapi.com/v1/country?fields=currency%2Ccurrency_num_code%2Ccurrency_code%2Ccontinent_code%2Ccurrency%2Ciso_a3%2Cdial_code&continent_code=${inputSelect.value}&lang=pt&limit=${limit}`;
+      break;
+    case "country":
+      url = `https://referential.p.rapidapi.com/v1/state?fields=iso_a2&iso_a2=${inputText[index].value}&lang=pt&limit=${limit}`;
+      break;
+    case "state":
+      url = `https://referential.p.rapidapi.com/v1/city?fields=iso_a2%2Cstate_code%2Cstate_hasc%2Ctimezone%2Ctimezone_offset&iso_a2=br&lang=pt&state_code=${inputText[index].value}&limit=${limit}`;
+      break;
+  }
 
-	if (response.status == 200) {
-		let result = await response.json();
+  try {
+    document.querySelector(".loading").style.display = "block";
+    response = await fetch(url, options);
+  } catch (error) {
+    alert("Tente novamente!");
+  }
 
-		// armazenando e ordenando os items no array
-		let resultArray = [];
-		result.map((element) => {
-			resultArray.push(element.value);
-		})
-		resultArray.sort()
+  document.querySelector(".loading").style.display = "none";
 
-		// construção do resultado na tela
-		for (let i = 0; i < resultArray.length; i += 3) {
-			const tableRow = document.createElement("tr");		
-			tableRow.innerHTML = `
-				<td>
+  if (response.status == 200) {
+    let result = await response.json();
+
+    // armazenando e ordenando os items no array
+    let resultArray = [];
+    result.map((element) => {
+      resultArray.push(element.value);
+    });
+    resultArray.sort();
+
+    // construção do resultado na tela
+    console.log(resultArray);
+    for (let i = 0; i < resultArray.length; i += 3) {
+      const tableRow = document.createElement("tr");
+      tableRow.innerHTML = `
+				 <td class="p-3">
 					<p class="w-50 d-inline float-start">${resultArray[i]}</p>
-					<a class="find-place nav-link material-symbols-outlined" href="https://www.google.com.br/maps/place/${resultArray[i]}" target="_blank" title="Localizar no Google Maps">location_on</a>
+					<a class="find-place nav-link material-symbols-outlined" href="https://www.google.com.br/maps/place/${
+            resultArray[i]
+          }" target="_blank" title="Localizar no Google Maps">location_on</a>
 				</td>
-				<td>
-					<p class="w-50 d-inline float-start">${resultArray[i += 1]}</p>
-					<a class="find-place nav-link material-symbols-outlined" href="https://www.google.com.br/maps/place/${resultArray[i]}" target="_blank" title="Localizar no Google Maps">location_on</a>
-				</td>
-				<td>
-					<p class="w-50 d-inline float-start">${resultArray[i += 1]}</p>
-					<a class="find-place nav-link material-symbols-outlined" href="https://www.google.com.br/maps/place/${resultArray[i]}" target="_blank" title="Localizar no Google Maps">location_on</a>
+				 <td class="p-3">
+					<p class="w-50 d-inline float-start">${resultArray[(i += 1)]}</p>
+					<a class="find-place nav-link material-symbols-outlined" href="https://www.google.com.br/maps/place/${
+            resultArray[i]
+          }" target="_blank" title="Localizar no Google Maps">location_on</a>
 				</td>
 			`;
-			i -= 2;
-			tableBody[index].appendChild(tableRow);
-		}	
-		
-		// evitando o resultado Undefined
-		const lastRow = document.querySelectorAll("tr:last-of-type p");
-		lastRow.forEach((element) => {
-			if (element.textContent == "undefined") {
-				element.parentElement.style.display = "none";
-			}
-		})
+      i -= 2;
+      tableBody[index].appendChild(tableRow);
+    }
 
-		// para aumentar o limite de busca da API
-		const tableRowIncreaseContent = document.createElement("tr");		
-		tableRowIncreaseContent.innerHTML = `
+    // evitando o resultado Undefined
+    const lastRow = document.querySelectorAll("tr:last-of-type p");
+    lastRow.forEach((element) => {
+      if (element.textContent == "undefined") {
+        element.parentElement.style.display = "none";
+      }
+    });
+
+    // para aumentar o limite de busca da API
+    const tableRowIncreaseContent = document.createElement("tr");
+    tableRowIncreaseContent.innerHTML = `
 			<td class="text-center py-2" colspan="3">
-				<button type="button" class="btn btn-warning text-bg-warning text-center w-50 mx-auto" onclick="increaseLimit(${index})">Mostrar Mais</button>
+				<button type="button" class="btn bg-yellow text-bg-warning text-center w-50 mx-auto" onclick="increaseLimit(${index})">Mostrar Mais</button>
 			</td>
 		`;
-		tableBody[index].appendChild(tableRowIncreaseContent);
-	} else {
-		const tableRow = document.createElement("tr");		
-		tableRow.innerHTML = `
+    tableBody[index].appendChild(tableRowIncreaseContent);
+  } else {
+    const tableRow = document.createElement("tr");
+    tableRow.innerHTML = `
 			<td class="text-center py-2">Nenhum resultado encontrado! Tente novamente.</td>
 		`;
-		tableBody[index].appendChild(tableRow);
-	}
-}
-
+    tableBody[index].appendChild(tableRow);
+  }
+};
 
 body.addEventListener("keydown", (event) => {
-	if (event.key == "Enter") {
-		event.preventDefault();
-		switch (event.view.location.hash) {
-			case "#continent":
-				catchResponse(0);
-				break;
-			case "#country":
-				catchResponse(1);
-				break;
-			case "#state":
-				catchResponse(2);
-				break;			
-		}		
-	}
+  if (event.key == "Enter") {
+    event.preventDefault();
+    switch (event.view.location.hash) {
+      case "#continent":
+        catchResponse(0);
+        break;
+      case "#country":
+        catchResponse(1);
+        break;
+      case "#state":
+        catchResponse(2);
+        break;
+    }
+  }
 });

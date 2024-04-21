@@ -1,92 +1,123 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --white-2: #ddf;
+  --white-2: #ddf;
+  --blue-1: #08f;
+  --blue-2: #00f;
+  --yellow-1: #fd0;
+  --yellow-2: #f80;
 }
 
 section {
-    background: var(--white-2);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: -100%;
-    left: 0;
-    overflow: scroll;
-    transition: all .5s;
+  background: var(--white-2);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  overflow: scroll;
+  transition: all 0.5s;
+}
+
+.bg-blue {
+  background: linear-gradient(180deg, var(--blue-1), var(--blue-2));
+}
+
+.bg-yellow {
+  background: linear-gradient(45deg, var(--yellow-1), var(--yellow-2));
 }
 
 li a:hover {
-    background: #ff0 !important;
+  background: #ff0 !important;
 }
 
 #start-screen {
-    top: 0;
+  top: 0;
 }
 
-#continent:target, #country:target, #state:target {
-    top: 0;
+#continent:target,
+#country:target,
+#state:target {
+  top: 0;
 }
 
 #continent .input-of-text {
-    display: none;
+  display: none;
 }
 
 .select-of-continents {
-    display: none;
+  display: none;
 }
 
 #continent .select-of-continents {
-    display: block;
+  display: block;
 }
 
-button[onclick*=back] {
-    background: transparent;
-    position: absolute;
-    border-radius: 0;
-    border: none;
+button.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 
-button[onclick*=back]:hover {
-    transform: scale(1.1);
+button[onclick*="back"] {
+  background: transparent;
+  position: absolute;
+  top: 71px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none !important;
 }
 
-button[onclick*=catch] {
-    border: black 2px solid !important;
-    width: 10%;
+button[onclick*="back"]:hover {
+  background-color: transparent;
+  color: var(--white-2);
 }
 
-button[onclick*=catch]:hover {
-    background: #ff0;
+button[onclick*="catch"] {
+  border: black 2px solid !important;
+  width: 10%;
 }
 
-td:hover {
-    background: #0dcaf0;
+button[onclick*="catch"]:hover {
+  background: linear-gradient(45deg, var(--yellow-1), var(--yellow-2));
 }
 
 .find-place {
-    float: right;
-    display: block;
+  float: right;
+  display: block;
 }
 
 .find-place:hover {
-    text-decoration: underline;
-    transform: scale(1.1);
+  text-decoration: underline;
+  transform: scale(1.1);
 }
 
 div#image {
-    height: 50vh;
-    background: white url(imagens/pexels-nastyasensei-335393.jpg) scroll no-repeat center center;
-    background-size: cover;
-    width: 100%;
+  height: 50vh;
+  background: white url(imagens/pexels-nastyasensei-335393.jpg) scroll no-repeat
+    center center;
+  background-size: cover;
+  width: 100%;
 }
 
 @media screen and (max-width: 600px) {
-    section {
-        background: transparent;
-    }
+  section {
+    background: transparent;
+  }
+
+  button[onclick*="back"] {
+    top: 177px;
+    left: 0px;
+    z-index: 10;
+  }
+
+  button[onclick*="catch"] {
+    width: 15%;
+  }
 }
