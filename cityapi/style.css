@@ -21,6 +21,7 @@ section {
   left: 0;
   overflow: scroll;
   transition: all 0.5s;
+  opacity: 0;
 }
 
 .bg-blue {
@@ -37,12 +38,14 @@ li a:hover {
 
 #start-screen {
   top: 0;
+  opacity: 1;
 }
 
 #continent:target,
 #country:target,
 #state:target {
   top: 0;
+  opacity: 1;
 }
 
 #continent .input-of-text {
