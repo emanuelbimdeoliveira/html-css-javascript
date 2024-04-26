@@ -1,130 +1,138 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --background-body: #ddf;
-    --background-main: linear-gradient(45deg, #00a, #00f, #35f);
-    --red-gradient: linear-gradient(45deg, #a00, #f00, #f53);
-    --yellow-gradient: linear-gradient(45deg, hsl(60, 100%, 80%), hsl(60, 100%, 50%),hsl(60, 100%, 25%));
-    --green-gradient: linear-gradient(45deg, #0a0, #0f0, #3f5);
-    --padding: 3% 5%;
-    --border-radius: 10px;
-    --border: solid 3px black;
-    --box-shadow: 5px 5px 10px #0008;
-    --text-shadow: 2px 2px 0 black;
+  --background-body: #ddf;
+  --background-main: linear-gradient(45deg, #00a, #00f);
+  --red-gradient: linear-gradient(45deg, #a00, #f00);
+  --yellow-gradient: linear-gradient(
+    45deg,
+    hsl(60, 100%, 80%),
+    hsl(60, 100%, 50%)
+  );
+  --green-gradient: linear-gradient(45deg, #0a0, #0f0);
+  --padding: 3% 5%;
+  --border-radius: 10px;
+  --border: solid 3px black;
+  --box-shadow: 5px 5px 10px #0008;
+  --text-shadow: 2px 2px 0 black;
 }
 
 body {
-    width: 100vw;
-    height: 95vh;
-    background: var(--background-body);
-    color: white;
-    text-shadow: var(--text-shadow);
-    font-family: 'Nunito Sans', sans-serif;
-    font-family: 'REM', sans-serif;
+  background: var(--background-body);
+  color: white;
+  min-height: 100vh;
+  text-shadow: var(--text-shadow);
+  font-family: "Nunito Sans", sans-serif;
+  font-family: "REM", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    width: 60%;
-    max-width: 700px;
-    height: 65vh;
-    background: var(--background-main);
-    margin: 10vh auto;
-    padding: var(--padding);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    display: grid;
-    grid-template-areas: 
-        "p d-p"
-        "p d-p"
-        "p d-p"
-        "s s"
-    ;
+  width: 60%;
+  max-width: 700px;
+  height: 65vh;
+  background: var(--background-main);
+  margin: 10vh auto;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: grid;
+  grid-template-areas:
+    "p d-p"
+    "p d-p"
+    "p d-p"
+    "s s";
 }
 
 p {
-    margin: 3% 0;
+  margin: 3% 0;
 }
 
 #percentage {
-    grid-area: p;
+  grid-area: p;
 }
 
 #display-percentage {
-    grid-area: d-p;
+  grid-area: d-p;
 }
 
 #battery-place {
-    width: 15%;
-    min-width: 80px;
-    height: 90%;
-    margin: auto;
-    box-shadow: inset 5px -5px 10px #fff5, inset -5px 5px 10px #0005, -5px -5px 5px #0005;
-    border: ridge 1px black;
-    border-radius: 50px;
-    overflow: hidden;
-    transform: rotateZ(180deg);
+  width: 15%;
+  min-width: 80px;
+  height: 90%;
+  margin: auto;
+  box-shadow: inset 5px -5px 10px #fff3, inset -5px 5px 10px #0005,
+    -5px -5px 5px #0005;
+  border: ridge 1px black;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: rotateZ(180deg);
 }
 
 #battery-place p {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: rotateZ(180deg) translateY(50%);  
-    color: black;
-    text-align: center;
-    text-shadow: none;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: rotateZ(180deg) translateY(50%);
+  color: black;
+  text-align: center;
+  text-shadow: none;
 }
 
 #battery-fluid {
-    width: 100%;
-    height: 25%;
-    background: var(--green-gradient);
-    z-index: -1;
-    border-bottom: ridge 1px black;
+  width: 100%;
+  height: 25%;
+  background: var(--green-gradient);
+  z-index: -1;
+  border-bottom: ridge 1px black;
 }
 
 #status {
-    grid-area: s;
+  grid-area: s;
 }
 
 label {
-    width: 44px;
-    height: 24px;
-    position: relative;
-    display: block;
-    border: solid 2px black;
-    border-radius: 50px;
+  width: 44px;
+  height: 24px;
+  position: relative;
+  display: block;
+  border: solid 2px black;
+  border-radius: 50px;
 }
 
 label input {
-    display: none;
+  display: none;
 }
 
 label input:checked + div {
-    background: #ddf;
-    transform: translateX(100%);
-    border: solid 2px black;
+  background: #ddf;
+  transform: translateX(100%);
+  border: solid 2px black;
 }
 
 label div {
-    background: var(--background-body);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid 2px black;
-    transition: all .3s linear;
+  background: var(--background-body);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: solid 2px black;
+  transition: all 0.3s linear;
 }
 
+@media screen and (max-width: 860px) {
+  main {
+    width: 90%;
+    height: 90%;
+  }
 
-@media screen and (max-width: 560px) {
-    main {
-        width: 90%;
-        height: 90%;
-        margin: 5vh auto;
-    }
+  #display-percentage {
+    height: 350px;
+  }
 }

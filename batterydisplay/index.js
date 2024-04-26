@@ -61,11 +61,14 @@ const changeTheme = (event) => {
         root.style.setProperty("--background-body", "#002");
         root.style.setProperty("--background-main", "linear-gradient(45deg, #3335, #5555, #8885)");
         label.style.border = "solid 2px white";
+        document.querySelector("#chose_mode").textContent = "Desativar modo escuro:"
     } else {
         root.style.setProperty("--background-body", "#ddf")
         root.style.setProperty("--background-main", "linear-gradient(45deg, #00a, #00f, #35f)");
         label.style.border = "solid 2px black";
+        document.querySelector("#chose_mode").textContent = "Ativar modo escuro:"
     }
+
 }
 
 
