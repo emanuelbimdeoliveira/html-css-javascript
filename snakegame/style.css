@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Calibri, "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  user-select: none;
 }
 
 :root {
@@ -68,6 +69,7 @@ button#start-button:hover {
 
 p {
   text-align: center;
+  font-weight: 600;
 }
 
 section.display-of-data {

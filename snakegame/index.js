@@ -113,6 +113,7 @@ const snakeMovement = () => {
 };
 
 const changeDirection = (event) => {
+  event.preventDefault();
   movementAudio.play();
   if (event.key == "ArrowLeft" || event.target.id == "1") {
     if (direction !== "toRight") {
