@@ -7,10 +7,10 @@
 }
 
 :root {
-  --color-primary: #088;
-  --color-secundary: #0aa;
-  --color-contrast-2: #fa0;
-  --color-contrast: #f60;
+  --color-primary: #ff6900;
+  --color-secundary: #b24900;
+  --color-contrast-2: #00ebff;
+  --color-contrast: #00a4b2;
   --border: 3px solid black;
   --box-shadow: 5px 5px 10px #000a;
 }
@@ -49,6 +49,19 @@ section.start-screen {
   top: 0;
   left: 0;
   z-index: 200;
+}
+
+#hard_button {
+  padding: 1em;
+  margin: 1em auto;
+  background: var(--color-contrast);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+#hard_button:hover {
+  background-color: var(--color-contrast-2);
 }
 
 button#start-button {
@@ -100,7 +113,7 @@ section.game-place {
 }
 
 span.snake-head {
-  background: black;
+  background: #060033;
   width: 50px;
   height: 50px;
   border: var(--border);

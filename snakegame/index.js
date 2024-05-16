@@ -23,6 +23,9 @@ let snakeVelocity = 100;
 // pausa
 let paused = false;
 
+// dificuldade
+let hard;
+
 // audios
 const movementAudio = new Audio("./audios/movement.wav");
 const startAudio = new Audio("./audios/start.wav");
@@ -56,7 +59,7 @@ let yPosition = fractionHeight * 5;
 let direction = "toBottom";
 
 // para alternar a cor de cada peça
-let colorPiece = ["#f70", "#000", "#fff"];
+let colorPiece = ["#0000FF", "#060033", "#110099"];
 let colorPieceIndex = -1;
 
 // posição de cada alimento
@@ -192,7 +195,7 @@ const addFood = () => {
 const addPiece = () => {
   upAudio.play();
 
-  setTimeout(() => {
+  const addPieceFunction = () => {
     const newPieceElement = document.createElement("span");
     newPieceElement.classList.add("snake-head");
 
@@ -221,7 +224,25 @@ const addPiece = () => {
 
     newPieceElement.style.left = `${xPosition}px`;
     newPieceElement.style.top = `${yPosition}px`;
+  };
+
+  setTimeout(() => {
+    addPieceFunction();
   }, 500);
+
+  if (hard) {
+    setTimeout(() => {
+      addPieceFunction();
+    }, 800);
+
+    setTimeout(() => {
+      addPieceFunction();
+    }, 1100);
+
+    setTimeout(() => {
+      addPieceFunction();
+    }, 1400);
+  }
 };
 
 // função que testa se a cabeça bate no seu corpo
@@ -273,12 +294,19 @@ buttons.forEach((element, index) => {
 });
 
 // funções iniciais
+const hardMode = () => {
+  alert("Você ativou o modo difícil!");
+  hard = true;
+};
+
 const startScreen = () => {
   const startScreen = document.createElement("section");
   startScreen.innerHTML = `
         <section class="start-screen">
         <button id="start-button" class="material-symbols-outlined" style="text-shadow: none">play_circle</button>
         <h1>Snake Game</h1>
+      <button onclick="hardMode()" id="hard_button">Modo difícil</button>
+
         <p>Use as teclas direcionais ou os botões para jogar!</p>
         </section>
     `;
